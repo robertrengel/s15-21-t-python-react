@@ -1,7 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.utils import timezone
 
+'''
 class Country(models.Model):
     #ISO 3166-1 alfa-3
     iso3 = models.CharField(max_length=3, unique=True)
@@ -16,8 +16,8 @@ class Role(models.Model):
     title = models.CharField(max_length=255, default='')
     description = models.CharField(max_length=255, default='')
 
-
-class CustomUser(models.Model):
+'''
+class ApiUser(models.Model):
     ROLE_CHOICES = (
         ('PAC', 'PACIENTE'),
         ('PRO', 'MEDICO'),
@@ -33,9 +33,41 @@ class CustomUser(models.Model):
         ('VEN', 'VENEZUELA')
         )
 
-    user = models.IntegerField() #models.ForeignKey(AbstractBaseUser, on_delete=models.PROTECT)
-    country = models.ForeignKey(Country, on_delete=models.PROTECT)
+    uniqueid = models.CharField(max_length=50, unique=True)
     country_code = models.CharField(choices=COUNTRY_CHOICES, max_length=3)
-    uniqueid = models.CharField(max_length=100)
-    role = models.ForeignKey(Role, on_delete=models.PROTECT)
-    role_choices = models.CharField(choices=ROLE_CHOICES, default='PAC', max_length=3)
+    role = models.CharField(choices=ROLE_CHOICES, default='PAC', max_length=3)
+    first_name = models.CharField(max_length=255, default='')
+    last_name = models.CharField(max_length=255, default='')
+    id_type = models.CharField(max_length=255, default='')
+    id_value = models.CharField(max_length=255, default='')
+    genre = models.CharField(max_length=255, default='')
+    civil_status = models.CharField(max_length=255, default='')
+    birth_date = models.DateField(null=True, editable=False)
+    created_by = models.CharField(max_length=50, null=True)
+    added_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now=True)
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(ApiUser, on_delete=models.CASCADE)
+    email = models.EmailField(unique=True)
+    notifications = models.BooleanField(default=True)
+    
+class MedicData(models.Model):
+    
+    STATUS_CHOICES = (
+        ('P', 'PENDIENTE'),
+        ('A', 'ACTIVO'),
+        ('I', 'INACTIVO'),
+        ('D', 'DENEGADO')
+        )
+
+    user = models.OneToOneField(ApiUser, on_delete=models.CASCADE)
+    status = models.CharField(choices=STATUS_CHOICES, default='P', max_length=1)
+    proffesional_identifier = models.CharField(null=True, default='', max_length=50)
+    added_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "MedicData"
+        verbose_name_plural = "MedicData"

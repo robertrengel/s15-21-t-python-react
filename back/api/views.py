@@ -1,27 +1,28 @@
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Country, Role, CustomUser
-from .serializers import CountrySerializer, RoleSerializer
+from .models import ApiUser, Profile
+from .serializers import UserSerializer, ProfileSerializer
 
-#def hola(request):
-#    return render(request, 'test.html', {'name': 'is here'})
+def hola(request):
+    queryset = ApiUser.objects.select_related('profile').all()
+    return render(request, 'test.html', {'users': queryset})
 
 @api_view()
-def countries_list(request):
-    queryset = Country.objects.all()
-    serializer = CountrySerializer(queryset, many=True)
+def user_list(request):
+    queryset = ApiUser.objects.select_related('profile').all()
+    serializer = UserSerializer(queryset, many=True)
     return Response(serializer.data)
 
 @api_view()
-def country_detail(request, id):
-    country = get_object_or_404(Country, pk=id)
-    serializer = CountrySerializer(country)
+def user_detail(request, id):
+    profile = get_object_or_404(ApiUser, pk=id)
+    serializer = UserSerializer(profile)
     return Response(serializer.data)
 
-
+'''
 @api_view()
 def role_list(request):
     queryset = Role.objects.all()
@@ -33,3 +34,4 @@ def role_detail(request, id):
     role = get_object_or_404(Role, pk=id)
     serializer = RoleSerializer(role)
     return Response(serializer.data)
+'''
