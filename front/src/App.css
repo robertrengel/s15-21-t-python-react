@@ -1,5 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 * {
     box-sizing: border-box;
     margin: p;
     padding: '';
+
+    /*typography*/
+    font-family: Poppins;
+    letter-spacing: .25px;
+    /* colors style*/
+    --Primary:#1B5196;
+    --Primary-hover:#416EA7;
+    --Secondary:#7BB6B2;
+    --Secondary-hover:#91C2BF;
+    --text-black:#222121;
+    --text-white:#FAFAFA;
+    --background:#F1F1F1;
+    --error:#F22C2C;
+    --OK:#45C93A;
+}
+
+
+ /*  class text style*/
+ /*  Name: H2*/
+ .f-h2{
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 54px;
+  text-align: center;
+ }
+ /* Name: H3 */
+ .f-h3{
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 48px;
+ }
+  /*  Name: Body medium */
+  .f-bm{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+}
+ /* Name:  Body large */
+ .f-bl{
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 42px;
+ 
+ }
+ /* Name:  Label medium-regular */
+ .f-lmr{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+ }
+ /* Name:  Label large */
+ .f-ll{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+ 
+ }
+ /* Name:  Label large-regular*/
+ .f-llr{
+font-weight: 400;
+font-size: 20px;
+line-height: 30px;
+ }
+
+
+ /* Name:  Label small */
+ .f-ls{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+ }
+ 
+ /* Name:  Label small2 */
+ .f-ls{
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 15px;
+ }
+
+  /*  class box style*/
+  .br-8{
+    border-radius: 8px;
 }
