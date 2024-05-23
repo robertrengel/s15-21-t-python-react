@@ -77,7 +77,6 @@ WSGI_APPLICATION = 'salud360.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -85,18 +84,7 @@ DATABASES = {
     }
 }
 
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'salud360',
-        'USER': 'salud360user',
-        'PASSWORD': 'UsaParaguas123#',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
-    }
-}
-'''
+
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 

@@ -20,7 +20,7 @@ class Role(models.Model):
 class ApiUser(models.Model):
     ROLE_CHOICES = (
         ('PAC', 'PACIENTE'),
-        ('PRO', 'MEDICO'),
+        ('MED', 'MEDICO'),
         ('OSA', 'ORGANISMO DE SALUD'),
         ('OAU', 'ORGANISMO DE AUTENTICACION')
         )
@@ -32,6 +32,12 @@ class ApiUser(models.Model):
         ('PER', 'PERU'),
         ('VEN', 'VENEZUELA')
         )
+    
+    STATUS_CHOICES = (
+        ('P', 'PENDIENTE'),
+        ('A', 'ACTIVO'),
+        ('I', 'INACTIVO')
+        )    
 
     uniqueid = models.CharField(max_length=50, unique=True)
     country_code = models.CharField(choices=COUNTRY_CHOICES, max_length=3)
@@ -43,23 +49,20 @@ class ApiUser(models.Model):
     genre = models.CharField(max_length=255, default='')
     civil_status = models.CharField(max_length=255, default='')
     birth_date = models.DateField(null=True, editable=False)
-    created_by = models.CharField(max_length=50, null=True)
+    password = models.CharField(max_length=255)
+    created_by = models.CharField(max_length=50, default='Usuario', null=True)
     added_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
-
-
-class Profile(models.Model):
-    user = models.OneToOneField(ApiUser, on_delete=models.CASCADE)
     email = models.EmailField(unique=True)
     notifications = models.BooleanField(default=True)
+    status = models.CharField(choices=STATUS_CHOICES, max_length=1, default='P')
     
 class MedicData(models.Model):
     
     STATUS_CHOICES = (
         ('P', 'PENDIENTE'),
         ('A', 'ACTIVO'),
-        ('I', 'INACTIVO'),
-        ('D', 'DENEGADO')
+        ('I', 'INACTIVO')
         )
 
     user = models.OneToOneField(ApiUser, on_delete=models.CASCADE)

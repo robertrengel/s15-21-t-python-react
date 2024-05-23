@@ -3,16 +3,16 @@ from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import ApiUser, Profile
+from .models import ApiUser, MedicData
 from .serializers import UserSerializer, ProfileSerializer
 
-def hola(request):
-    queryset = ApiUser.objects.select_related('profile').all()
-    return render(request, 'test.html', {'users': queryset})
+#def hola(request):
+#    queryset = ApiUser.objects.all()
+#    return render(request, 'test.html', {'users': queryset})
 
 @api_view()
 def user_list(request):
-    queryset = ApiUser.objects.select_related('profile').all()
+    queryset = ApiUser.objects.all()
     serializer = UserSerializer(queryset, many=True)
     return Response(serializer.data)
 
