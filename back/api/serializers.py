@@ -12,12 +12,7 @@ class UserSerializer(serializers.Serializer):
     civil_status = serializers.CharField(max_length=255)
     birth_date = serializers.DateField()
     created_by = serializers.CharField(max_length=50)
-    added_date = serializers.DateTimeField()
-    modified_date = serializers.DateTimeField()
     
-
-
 class ProfileSerializer(serializers.Serializer):
-    user_id = serializers.IntegerField()
     email = serializers.EmailField(max_length=100)
     notifications = serializers.BooleanField()
