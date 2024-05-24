@@ -22,7 +22,9 @@ function Login() {
 
                   <div data-mdb-input-init="" className="form-outline form-white mb-4">
                     <label className="form-label" htmlFor="typeEmailX"> Email </label>
-                    <input type="email" id="typeEmailX" className="form-control form-control-lg" />
+                    <input type="email" id="typeEmailX" className="form-control form-control-lg"  />
+                  
+                    
                   </div>
 
                   <div data-mdb-input-init="" className="form-outline form-white mb-4" >

@@ -30,3 +30,8 @@ input{
     display: flex;
     flex-direction:initial; 
 }
+
+.small{
+    padding: 5%;
+}
+
