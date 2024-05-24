@@ -97,7 +97,7 @@ WSGI_APPLICATION = "salud360.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR}/db.sqlite3",
+        default="postgresql://postgres:postgres:1234@localhost:5432/dbprueba",
         conn_max_age=600,
     )
 }
