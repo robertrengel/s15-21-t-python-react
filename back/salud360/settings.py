@@ -52,6 +52,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "api",
     "medics_profile",
+    "medical_history",
 ]
 
 
