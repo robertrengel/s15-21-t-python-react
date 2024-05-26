@@ -27,4 +27,5 @@ urlpatterns = [
     path("api/", include("api.urls")),
     path("__debug__/", include("debug_toolbar.urls")),
     path("api/v1/medical-history/", include("medical_history.api.v1.urls")),
+    path("api/v1/medic-profile/", include("medical_history.api.v1.urls")),
 ]
