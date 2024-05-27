@@ -12,8 +12,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import environ
-from decouple import config
-from datetime import timedelta
+import os
+
+# from decouple import config
+# from datetime import timedelta
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,11 +29,13 @@ environ.Env.read_env()
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("DJANGO_SECRET_KEY")
+# SECRET_KEY = env("DJANGO_SECRET_KEY")
+
+SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DJANGO_DEBUG", False)
-
+# DEBUG = env.bool("DJANGO_DEBUG", False)
+DEBUG = True
 ALLOWED_HOSTS = []
 
 
@@ -99,17 +104,24 @@ WSGI_APPLICATION = "salud360.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": env("DB_NAME"),
-        "USER": env("DB_USER"),
-        "PASSWORD": env("DB_PASSWORD"),
-        "HOST": env("DB_HOST"),
-        "PORT": env("DB_PORT"),
-    }
-}
+# DATABASES = {
+#    "default": {
+#        "ENGINE": "django.db.backends.postgresql_psycopg2",
+#        "NAME": env("DB_NAME"),
+#        "USER": env("DB_USER"),
+#        "PASSWORD": env("DB_PASSWORD"),
+#        "HOST": env("DB_HOST"),
+#        "PORT": env("DB_PORT"),
+#    }
+# }
 
+DATABASES = {
+    "default": dj_database_url.config(
+        # aqui se coloca la base de datos por defecto
+        default="postgresql://postgres:postgres@localhost:5432/dbapi2",
+        conn_max_age=600,
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
