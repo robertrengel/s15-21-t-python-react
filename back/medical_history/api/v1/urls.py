@@ -7,10 +7,11 @@ medical_history_list = MedicalHistoryViewSet.as_view(
         "post": "create",
     }
 )
+
 urlpatterns = [
     path(
-        "list/",
+        "patients",
         medical_history_list,
-        name="list",
+        name="patients",
     ),
 ]

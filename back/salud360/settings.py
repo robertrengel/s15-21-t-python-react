@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import environ
+from decouple import config
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,8 +46,11 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    "drf_yasg",
     "rest_framework",
     "debug_toolbar",
+    "drf_spectacular",
+    "drf_spectacular_sidecar",
 ]
 
 
@@ -152,3 +157,43 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Doc360",
+    "DESCRIPTION": "Clinical expedients management",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": True,
+    "COMPONENT_SPLIT_REQUEST": True,
+    "SWAGGER_UI_DIST": "SIDECAR",  # shorthand to use the sidecar instead
+    "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
+    "REDOC_DIST": "SIDECAR",
+    "TAGS": [
+        {
+            "name": "api",
+            "description": "User register, loginand authentication",
+        },
+        {
+            "name": "medical_history",
+            "description": "Clinical history managed by medical authorities",
+        },
+        {
+            "name": "medics_profile",
+            "description": "Professional profile of medical public bureau",
+        },
+    ],
+}
+
+REST_FRAMEWORK = {
+    "COERCE_DECIMAL_TO_STRING": False,
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("JWT",),
+}
+
+DJOSER = {"SERIALIZERS": {"user_create": "api.serializers.UserCreateSerializer"}}

@@ -3,19 +3,19 @@ from rest_framework import viewsets, filters, status
 # from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from medical_history.models import MedicalHistory
+from medics_profile.models import MedicProfile
 
-from medical_history.api.v1.serializers import MedicalHistorySerializer
+from medics_profile.api.v1.serializers import MedicProfileSerializer
 from drf_spectacular.utils import extend_schema
 
 
-@extend_schema(tags=["medical_history"])
-class MedicalHistoryViewSet(viewsets.ModelViewSet):
-    queryset = MedicalHistory.objects.all()
-    serializer_class = MedicalHistorySerializer
+@extend_schema(tags=["medics_profile"])
+class MedicProfileViewSet(viewsets.ModelViewSet):
+    queryset = MedicProfile.objects.all()
+    serializer_class = MedicProfileSerializer
 
     def get_queryset(self):
-        queryset = MedicalHistory.objects.all()
+        queryset = MedicProfile.objects.all()
 
         return queryset
 
