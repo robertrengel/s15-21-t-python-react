@@ -56,6 +56,7 @@ THIRD_PARTY_APPS = [
     "debug_toolbar",
     "drf_spectacular",
     "drf_spectacular_sidecar",
+    "coreapi",
 ]
 
 
@@ -202,6 +203,7 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    # "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 }
 
 SIMPLE_JWT = {
@@ -209,3 +211,6 @@ SIMPLE_JWT = {
 }
 
 DJOSER = {"SERIALIZERS": {"user_create": "api.serializers.UserCreateSerializer"}}
+# REST_FRAMEWORK = {
+#    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+# }
