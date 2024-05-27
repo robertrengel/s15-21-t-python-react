@@ -54,6 +54,7 @@ urlpatterns = [
     # path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
     path("admin/", admin.site.urls),
     path("api/", include("api.urls")),
+    path("speciality/", include("speciality.urls")),
     path("__debug__/", include("debug_toolbar.urls")),
     path("auth/", include("djoser.urls")),
     path("auth/", include("djoser.urls.jwt")),
@@ -81,4 +82,6 @@ urlpatterns = [
     ),
     path("api/v1/medical-history/", include("medical_history.api.v1.urls")),
     path("api/v1/medics-profile/", include("medics_profile.api.v1.urls")),
+    #path("api/v1/speciality/", include("speciality.api.v1.urls")),
 ]
+

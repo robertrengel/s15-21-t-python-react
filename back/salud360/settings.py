@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import environ
-from decouple import config
 from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -58,6 +57,7 @@ LOCAL_APPS = [
     "api",
     "medics_profile",
     "medical_history",
+    "speciality",
 ]
 
 
