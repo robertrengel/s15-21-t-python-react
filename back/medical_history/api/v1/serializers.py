@@ -4,6 +4,11 @@ from medical_history.validators import validate_added_by_is_positive_integer
 
 
 class MedicalHistorySerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Item model.
+    S E R I A L I Z A T I O N
+    """
+
     class Meta:
         model = MedicalHistory
         fields = "__all__"

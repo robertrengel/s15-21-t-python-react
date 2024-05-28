@@ -1,14 +1,13 @@
-from rest_framework import viewsets, filters, status
+from rest_framework import viewsets, status
 
 # from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
-from rest_framework.decorators import action
-from medical_history.models import MedicalHistory
+from medics_profile.models import MedicProfile
 
-from medical_history.api.v1.serializers import MedicalHistorySerializer
+from medics_profile.api.v1.serializers import MedicProfileSerializer
 
 
-class MedicalHistoryViewSet(viewsets.ModelViewSet):
+class MedicProfileViewSet(viewsets.ModelViewSet):
     """
     E  U  R  E  K  A
     API endpoint that allows items to be viewed or edited.
@@ -17,12 +16,12 @@ class MedicalHistoryViewSet(viewsets.ModelViewSet):
     list:
     """
 
-    queryset = MedicalHistory.objects.all()
-    serializer_class = MedicalHistorySerializer
+    queryset = MedicProfile.objects.all()
+    serializer_class = MedicProfileSerializer
 
     def get_queryset(self):
 
-        queryset = MedicalHistory.objects.all()
+        queryset = MedicProfile.objects.all()
 
         return queryset
 
@@ -66,7 +65,7 @@ class MedicalHistoryViewSet(viewsets.ModelViewSet):
 
         medical_id = kwargs.get("pk")
         try:
-            medical_id_fetched = MedicalHistory.objects.get(id=medical_id)
+            medical_id_fetched = MedicProfile.objects.get(id=medical_id)
         except medical_id_fetched.DoesNotExist:
             return Response(
                 {"details": "Medical History not found"},

@@ -1,31 +1,34 @@
-"""
-URL configuration for salud360 project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-
 from django.contrib import admin
 from django.urls import path, include
-import debug_toolbar
 from rest_framework.routers import DefaultRouter
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi as oa
+from rest_framework.documentation import include_docs_urls
 
 admin.site.site_header = "Salud360 Admin Panel"
 
+schema_view = get_schema_view(
+    oa.Info(
+        title="Doc360 Api",
+        default_version="v1",
+        description="This os the API documentation",
+        lincense=oa.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("api.urls")),
     path("__debug__/", include("debug_toolbar.urls")),
-    path("api/v1/medical-history/", include("medical_history.api.v1.urls")),
-    path("api/v1/medic-profile/", include("medical_history.api.v1.urls")),
+    path("medical-history/", include("medical_history.api.v1.urls")),
+    path("medic-profile/", include("medics_profile.api.v1.urls")),
+    path("schema/", schema_view.as_view()),
+    path("docs/", include_docs_urls(title="Doc360 Api")),
+    path(
+        "swagger/",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
 ]

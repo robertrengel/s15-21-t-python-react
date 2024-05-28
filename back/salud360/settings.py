@@ -46,6 +46,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "rest_framework",
     "debug_toolbar",
+    "drf_yasg",
 ]
 
 
