@@ -11,24 +11,35 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
+#import os
+
+# from decouple import config
+# from datetime import timedelta
+#import dj_database_url
 import os
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env()
+environ.Env.read_env()
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-u%g40^7s^3fzoi=idhfz_vmelgkd9va$*1=mww#-4tm=00%z@&'
-SECRET_KEY = "django-insecure-u%g40^7s^3fzoi=idhfz_vmelgkd9va$*1=mww#-4tm=00%z@&"
+# # SECRET_KEY = env("DJANGO_SECRET_KEY")
+
+SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
+#SECRET_KEY = "django-insecure-u%g40^7s^3fzoi=idhfz_vmelgkd9va$*1=mww#-4tm=00%z@&"
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = env.bool("DJANGO_DEBUG", False)
 # DEBUG = True
 DEBUG = "RENDER" not in os.environ
-
 ALLOWED_HOSTS = []
 
 
@@ -38,18 +49,34 @@ if RENDER_EXTERNAL_HOSTNAME:
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework",
-    "coreapi",
-    "api",
-    "debug_toolbar",
 ]
+
+THIRD_PARTY_APPS = [
+    "drf_yasg",
+    "rest_framework",
+    "debug_toolbar",
+    "drf_spectacular",
+    "drf_spectacular_sidecar",
+    "coreapi",
+]
+
+
+LOCAL_APPS = [
+    "api",
+    "medics_profile",
+    "medical_history",
+]
+
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
 
 MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
@@ -63,25 +90,25 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "salud360.urls"
+ROOT_URLCONF = 'salud360.urls'
 
 TEMPLATES = [
     {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
-        "APP_DIRS": True,
-        "OPTIONS": {
-            "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = "salud360.wsgi.application"
+WSGI_APPLICATION = 'salud360.wsgi.application'
 
 
 # Database
@@ -89,35 +116,38 @@ WSGI_APPLICATION = "salud360.wsgi.application"
 
 # DATABASES = {
 #    "default": {
-#        "ENGINE": "django.db.backends.sqlite3",
-#        "NAME": BASE_DIR / "db.sqlite3",
+#        "ENGINE": "django.db.backends.postgresql_psycopg2",
+#        "NAME": env("DB_NAME"),
+#        "USER": env("DB_USER"),
+#        "PASSWORD": env("DB_PASSWORD"),
+#        "HOST": env("DB_HOST"),
+#        "PORT": env("DB_PORT"),
 #    }
 # }
 
-
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgresql://postgres:postgres:1234@localhost:5432/dbprueba",
+        # aqui se coloca la base de datos por defecto
+        default="postgresql://postgres:postgres@localhost:5432/dbapi2",
         conn_max_age=600,
     )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -125,9 +155,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = "UTC"
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -146,7 +176,7 @@ if not DEBUG:
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
@@ -156,3 +186,47 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Doc360",
+    "DESCRIPTION": "Clinical expedients management",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": True,
+    "COMPONENT_SPLIT_REQUEST": True,
+    "SWAGGER_UI_DIST": "SIDECAR",  # shorthand to use the sidecar instead
+    "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
+    "REDOC_DIST": "SIDECAR",
+    "TAGS": [
+        {
+            "name": "api",
+            "description": "User register, loginand authentication",
+        },
+        {
+            "name": "medical_history",
+            "description": "Clinical history managed by medical authorities",
+        },
+        {
+            "name": "medics_profile",
+            "description": "Professional profile of medical public bureau",
+        },
+    ],
+}
+
+REST_FRAMEWORK = {
+    "COERCE_DECIMAL_TO_STRING": False,
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    # "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+}
+
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("JWT",),
+}
+
+DJOSER = {"SERIALIZERS": {"user_create": "api.serializers.UserCreateSerializer"}}
+# REST_FRAMEWORK = {
+#    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+# }
