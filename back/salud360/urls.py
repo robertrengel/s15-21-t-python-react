@@ -17,28 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-# <<<<<<< HEAD
-# from rest_framework.documentation import include_docs_urls
-
-# admin.site.site_header = "Salud360 Admin Panel"
-
-# urlpatterns = [
-#    path("admin/", admin.site.urls),
-#    path("api/", include("api.urls")),
-#    path("__debug__/", include("debug_toolbar.urls")),
-# =======
 
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
-# from rest_framework import permissions
-# from drf_yasg.views import get_schema_view
-# from drf_yasg import openapi
-
-# from rest_framework.authtoken import views
-
 from rest_framework.documentation import include_docs_urls
 
 # YOUR PATTERNS
@@ -90,6 +74,5 @@ urlpatterns = [
     ),
     path("api/v1/medical-history/", include("medical_history.api.v1.urls")),
     path("api/v1/medics-profile/", include("medics_profile.api.v1.urls")),
-    # >>>>>>> f005-resc/medical-history-documentation
     path("docs/", include_docs_urls(title="API Documentation")),
 ]
