@@ -139,3 +139,5 @@ GitHub.sublime-settings
 poetry.lock
 pyproject.toml
 requirements.txt
+documentation.md
+Makefile

@@ -1,0 +1,137 @@
+[
+    
+    {
+        "model": "catalogs.speciality",
+        "pk": 1,
+        "fields": {
+          "created_at": "2024-05-26T01:44:01.099801Z",
+          "updated_at": "2024-05-26T01:44:01.099826Z",
+          "is_active": true,
+          "speciality_name": "Anestesiología",
+          "speciality_description": "Anestesia",
+          "speciality_img_url": "http://cloudinary.com/doc360/anestesiologia.jpg"
+        }
+      },
+      {
+        "model": "catalogs.speciality",
+        "pk": 2,
+        "fields": {
+          "created_at": "2024-05-26T01:43:01.099801Z",
+          "updated_at": "2024-05-26T01:43:01.099821Z",
+          "is_active": true,
+          "speciality_name": "Anatomía Patológica",
+          "speciality_description": "Anatomía Patológica relativa al cuerpo",
+          "speciality_img_url": "http://cloudinary.com/doc360/anatomiapato.jpg"
+        }
+      },
+      {
+        "model": "catalogs.speciality",
+        "pk": 3,
+        "fields": {
+          "created_at": "2024-05-26T01:43:01.199801Z",
+          "updated_at": "2024-05-26T01:43:01.199821Z",
+          "is_active": true,
+          "speciality_name": "Cardiología Clínica",
+          "speciality_description": "Cardiología Clínica, seguimiento a las personas",
+          "speciality_img_url": "http://cloudinary.com/doc360/cardiologiacli.jpg"
+        }
+      },
+      {
+        "model": "catalogs.speciality",
+        "pk": 4,
+        "fields": {
+          "created_at": "2024-05-26T01:43:01.299801Z",
+          "updated_at": "2024-05-26T01:43:01.299821Z",
+          "is_active": true,
+          "speciality_name": "Cardiología Intervencionista",
+          "speciality_description": "Cardiología Intervencionista, seguimiento a las personas",
+          "speciality_img_url": "http://cloudinary.com/doc360/cardiologiainter.jpg"
+        }
+      },
+      {
+        "model": "catalogs.speciality",
+        "pk": 5,
+        "fields": {
+          "created_at": "2024-05-26T01:43:01.299805Z",
+          "updated_at": "2024-05-26T01:43:01.299825Z",
+          "is_active": true,
+          "speciality_name": "Cirugía Pediátrica",
+          "speciality_description": "Cirugía Pediátrica para la atención la niñez",
+          "speciality_img_url": "http://cloudinary.com/doc360/cardiologiaped.jpg"
+        }
+      },
+      {
+        "model": "catalogs.speciality",
+        "pk": 6,
+        "fields": {
+          "created_at": "2024-05-26T01:43:01.299802Z",
+          "updated_at": "2024-05-26T01:43:01.299822Z",
+          "is_active": true,
+          "speciality_name": "Cirugía General",
+          "speciality_description": "Cirugía General para la atención la niñez",
+          "speciality_img_url": "http://cloudinary.com/doc360/cirugiagen.jpg"
+        }
+      },
+      {
+        "model": "catalogs.speciality",
+        "pk": 7,
+        "fields": {
+          "created_at": "2024-05-26T01:43:01.299902Z",
+          "updated_at": "2024-05-26T01:43:01.299922Z",
+          "is_active": true,
+          "speciality_name": "Cirugía Plástica y Reconstructiva",
+          "speciality_description": "Cirugía Plástica y Reconstructiva para la atención a la fealdad",
+          "speciality_img_url": "http://cloudinary.com/doc360/cirugiaplasrec.jpg"
+        }
+      },
+      {
+        "model": "catalogs.speciality",
+        "pk": 8,
+        "fields": {
+          "created_at": "2024-05-26T01:43:01.298902Z",
+          "updated_at": "2024-05-26T01:43:01.298922Z",
+          "is_active": true,
+          "speciality_name": "Angiología y Cirugía Vascular y Endovascular",
+          "speciality_description": "Angiología y Cirugía Vascular y Endovascular para superar lo vasculo",
+          "speciality_img_url": "http://cloudinary.com/doc360/cirugiangiavasend.jpg"
+        }
+      },
+      {
+        "model": "catalogs.speciality",
+        "pk": 9,
+        "fields": {
+          "created_at": "2024-05-26T01:43:01.297902Z",
+          "updated_at": "2024-05-26T01:43:01.297922Z",
+          "is_active": true,
+          "speciality_name": "Dermatología",
+          "speciality_description": "Dermatología para superar las alergias",
+          "speciality_img_url": "http://cloudinary.com/doc360/dermatologia.jpg"
+        }
+      },
+      {
+        "model": "catalogs.speciality",
+        "pk": 10,
+        "fields": {
+          "created_at": "2024-05-26T01:43:01.297802Z",
+          "updated_at": "2024-05-26T01:43:01.297822Z",
+          "is_active": true,
+          "speciality_name": "Endoscopia del Aparato Digestivo",
+          "speciality_description": "Endoscopia del Aparato Digestivo para la invasión mínima",
+          "speciality_img_url": "http://cloudinary.com/doc360/endo.jpg"
+        }
+      },
+      {
+        "model": "catalogs.speciality",
+        "pk": 11,
+        "fields": {
+          "created_at": "2024-05-26T01:43:01.297702Z",
+          "updated_at": "2024-05-26T01:43:01.297722Z",
+          "is_active": true,
+          "speciality_name": "Gastroenterología",
+          "speciality_description": "Gastroenterología para los que comen desordenadamente",
+          "speciality_img_url": "http://cloudinary.com/doc360/gastro.jpg"
+        }
+      }         
+      
+]
+

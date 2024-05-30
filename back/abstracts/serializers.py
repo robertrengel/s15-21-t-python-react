@@ -1,3 +1,5 @@
-from django.test import TestCase
+from rest_framework import serializers
 
-# Create your tests here.
+
+class AbstractSerializer(serializers.Serializer):
+    pass
