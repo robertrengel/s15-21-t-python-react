@@ -13,6 +13,14 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import environ
 
+# import os
+
+# from decouple import config
+# from datetime import timedelta
+# import dj_database_url
+import os
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,14 +31,16 @@ environ.Env.read_env()
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("DJANGO_SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DJANGO_DEBUG", False)
+SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
 
+DEBUG = "RENDER" not in os.environ
 ALLOWED_HOSTS = []
 
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
@@ -44,9 +54,12 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    "drf_yasg",
     "rest_framework",
     "debug_toolbar",
-    "drf_yasg",
+    "drf_spectacular",
+    "drf_spectacular_sidecar",
+    "coreapi",
 ]
 
 
@@ -60,12 +73,10 @@ LOCAL_APPS = [
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
-REST_FRAMEWORK = {
-    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
-}
 MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -94,21 +105,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "salud360.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": env("DB_NAME"),
-        "USER": env("DB_USER"),
-        "PASSWORD": env("DB_PASSWORD"),
-        "HOST": env("DB_HOST"),
-        "PORT": env("DB_PORT"),
-    }
+    "default": dj_database_url.config(
+        # aqui se coloca la base de datos por defecto
+        default="postgresql://renesilva:renesilva@localhost:5432/dbdoc",
+        conn_max_age=600,
+    )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -146,6 +149,10 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -156,3 +163,18 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+
+REST_FRAMEWORK = {
+    "COERCE_DECIMAL_TO_STRING": False,
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+}
+
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("JWT",),
+}
+
+DJOSER = {"SERIALIZERS": {"user_create": "api.serializers.UserCreateSerializer"}}

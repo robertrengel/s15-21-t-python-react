@@ -7,7 +7,6 @@ medics_profile_list = MedicProfileViewSet.as_view(
         "post": "create",
     }
 )
-
 medics_profile_detail = MedicProfileViewSet.as_view(
     {
         "get": "retrieve",

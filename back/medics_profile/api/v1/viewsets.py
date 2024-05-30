@@ -1,20 +1,10 @@
 from rest_framework import viewsets, status
-
-# from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
 from medics_profile.models import MedicProfile
-
 from medics_profile.api.v1.serializers import MedicProfileSerializer
 
 
 class MedicProfileViewSet(viewsets.ModelViewSet):
-    """
-    E  U  R  E  K  A
-    API endpoint that allows items to be viewed or edited.
-    - RETRIVE:
-    Return the given item.
-    list:
-    """
 
     queryset = MedicProfile.objects.all()
     serializer_class = MedicProfileSerializer
@@ -33,14 +23,6 @@ class MedicProfileViewSet(viewsets.ModelViewSet):
         return super().list(request, *args, **kwargs)
 
     def create(self, request, *args, **kwargs):
-        """
-        CRUD functionality: Create (create a new clinical expedient)
-        **URL:** `POST /medical-history/`
-        -
-        **Request Body:**
-        - `added_by` (int): Positive integer | This field is validated from the side server
-
-        """
         serializer = self.get_serializer(data=request.data)
         try:
             serializer.is_valid(raise_exception=True)

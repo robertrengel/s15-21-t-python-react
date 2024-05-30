@@ -1,5 +1,4 @@
 from django.urls import path
-from rest_framework.routers import DefaultRouter
 from medical_history.api.v1.viewsets import MedicalHistoryViewSet
 
 medical_history_list = MedicalHistoryViewSet.as_view(
@@ -17,12 +16,11 @@ medical_history_detail = MedicalHistoryViewSet.as_view(
     }
 )
 
-
 urlpatterns = [
     path(
-        "",
+        "patients",
         medical_history_list,
-        name="list",
+        name="patients",
     ),
     path("<int:pk>/", medical_history_detail, name="medical-history-detail"),
 ]

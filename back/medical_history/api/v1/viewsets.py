@@ -1,21 +1,13 @@
-from rest_framework import viewsets, filters, status
+from rest_framework import viewsets, status
 
 # from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
-from rest_framework.decorators import action
 from medical_history.models import MedicalHistory
 
 from medical_history.api.v1.serializers import MedicalHistorySerializer
 
 
 class MedicalHistoryViewSet(viewsets.ModelViewSet):
-    """
-    E  U  R  E  K  A
-    API endpoint that allows items to be viewed or edited.
-    - RETRIVE:
-    Return the given item.
-    list:
-    """
 
     queryset = MedicalHistory.objects.all()
     serializer_class = MedicalHistorySerializer
