@@ -60,6 +60,7 @@ THIRD_PARTY_APPS = [
     "drf_spectacular",
     "drf_spectacular_sidecar",
     "coreapi",
+    "djoser",
 ]
 
 
