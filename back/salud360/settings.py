@@ -109,7 +109,7 @@ WSGI_APPLICATION = "salud360.wsgi.application"
 DATABASES = {
     "default": dj_database_url.config(
         # aqui se coloca la base de datos por defecto
-        default="postgresql://renesilva:renesilva@localhost:5432/dbdoc",
+        default="postgresql://postgres:postgres@localhost:5432/dbdoc",
         conn_max_age=600,
     )
 }
