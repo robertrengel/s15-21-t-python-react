@@ -1,22 +1,4 @@
 from django.db import models
-from django.utils import timezone
-
-"""
-class Country(models.Model):
-    #ISO 3166-1 alfa-3
-    iso3 = models.CharField(max_length=3, unique=True)
-    isonum = models.CharField(max_length=3, unique=True)
-    title = models.CharField(max_length=100, unique=True)
-
-    class Meta:
-        verbose_name = "Country"
-        verbose_name_plural = "Countries"
-
-class Role(models.Model):
-    title = models.CharField(max_length=255, default='')
-    description = models.CharField(max_length=255, default='')
-
-"""
 
 
 class ApiUser(models.Model):

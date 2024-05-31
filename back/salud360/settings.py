@@ -13,30 +13,18 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import environ
 
-# import os
-
-# from decouple import config
-# from datetime import timedelta
-# import dj_database_url
 import os
 import dj_database_url
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
 environ.Env.read_env()
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-
 SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
 
 DEBUG = "RENDER" not in os.environ
 ALLOWED_HOSTS = []
-
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
@@ -108,14 +96,11 @@ WSGI_APPLICATION = "salud360.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        # aqui se coloca la base de datos por defecto
         default="postgresql://postgres:postgres@localhost:5432/dbdoc",
         conn_max_age=600,
     )
 }
 
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -132,9 +117,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
 
@@ -164,7 +146,6 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
-
 
 REST_FRAMEWORK = {
     "COERCE_DECIMAL_TO_STRING": False,

@@ -1,7 +1,5 @@
 from rest_framework import serializers
 from djoser.serializers import UserCreateSerializer as BaseUserCreateSerializer
-
-
 from djoser.serializers import UserCreateSerializer as BaseUserCreateSerializer
 
 

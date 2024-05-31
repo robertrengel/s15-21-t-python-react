@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
-__pycache__/
+__pycache__
 *.py[cod]
 *$py.class
 
@@ -98,7 +97,6 @@ poetry.lock
 
 # Sphinx documentation
 docs/_build/
-=======
 # Django #
 *.log
 *.pot
@@ -240,9 +238,5 @@ GitHub.sublime-settings
 poetry.lock
 pyproject.toml
 requirements.txt
-<<<<<<< HEAD
 documentation.md
 Makefile
-=======
->>>>>>> f005-resc/medical-history-documentation
->>>>>>> f2e7d2bd87198d973ca1218aa5fb9cf2c7c113a5

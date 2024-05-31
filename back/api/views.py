@@ -4,10 +4,6 @@ from rest_framework.response import Response
 from .models import ApiUser
 from .serializers import UserSerializer
 
-# def hola(request):
-#    queryset = ApiUser.objects.all()
-#    return render(request, 'test.html', {'users': queryset})
-
 
 @api_view()
 def user_list(request):
