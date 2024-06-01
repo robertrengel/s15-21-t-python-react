@@ -1,16 +1,62 @@
-# Byte-compiled / optimized / DLL files
-__pycache__
-*.py[cod]
-*$py.class
+# Sistema Operativo
+.DS_Store
+Thumbs.db
 
-# Distribution / packaging
-.Python
+# Entorno Virtual
 env/
 venv/
 ENV/
-env.bak/
-venv.bak/
-bin/
+.venv/
+.env/
+
+# Compilación de Python
+*.py[cod]
+__pycache__/
+*.so
+
+# Archivos de configuración de editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Configuración de PyCharm
+*.iml
+*.iws
+.idea/
+
+# Archivos de Log
+*.log
+
+# Base de Datos Local
+db.sqlite3
+*.sqlite3
+
+# Archivos de Configuración de Django
+*.env
+.settings/
+
+# Configuración de Migrations
+*.pyo
+*.pyd
+*.pid
+*.egg-info/
+*.egg
+
+# Archivos creados por tests de cobertura
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
+.nox/
+
+# Archivos de Caches
+.cache/
+*.pytest_cache/
+.cache/
+
+# Distribución / Paquetes
+.Python
 build/
 develop-eggs/
 dist/
@@ -22,221 +68,25 @@ lib64/
 parts/
 sdist/
 var/
-wheels/
-share/python-wheels/
-pip-wheel-metadata/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
 
-# Django stuff:
-*.log
-*.pot
-*.pyc
-*.pyo
+# Documentación
+docs/_build/
+
+# Archivos de traducción de i18n
 *.mo
-*.db
-*.sqlite3
+*.pot
 
-# If you are using Docker:
-*.env
-.env.*
-docker-compose*.yml
-Dockerfile
-docker-compose.override.yml
-__pycache__/
-
-# If your build process includes generating static files:
+# Static files y uploads
 staticfiles/
+media/
 
-# Local development environments
-local_settings.py
-db.sqlite3
-
-# VS Code settings
-.vscode/
-
-# PyCharm settings
-.idea/
-
-# System files
-.DS_Store
-Thumbs.db
-
-# mypy
+# Archivos de configuración de MyPy
 .mypy_cache/
 .dmypy.json
 dmypy.json
 
-# pytest
-.cache
-
-# Coverage reports
-htmlcov/
-.tox
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# Pyre type checker
+# Archivos de configuración de Pyre
 .pyre/
-
-# Pipenv
-Pipfile.lock
-
-# If you use poetry
-poetry.lock
-
-# Sphinx documentation
-docs/_build/
-# Django #
-*.log
-*.pot
-*.pyc
-__pycache__
-db.sqlite3
-media
-
-# Backup files # 
-*.bak 
-
-# If you are using PyCharm # 
-# User-specific stuff
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
-
-# AWS User-specific
-.idea/**/aws.xml
-
-# Generated files
-.idea/**/contentModel.xml
-
-# Sensitive or high-churn files
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-.idea/**/dbnavigator.xml
-
-# Gradle
-.idea/**/gradle.xml
-.idea/**/libraries
-
-# File-based project format
-*.iws
-
-# IntelliJ
-out/
-
-# JIRA plugin
-atlassian-ide-plugin.xml
-
-# Python # 
-*.py[cod] 
-*$py.class 
-
-# Distribution / packaging 
-.Python build/ 
-develop-eggs/ 
-dist/ 
-downloads/ 
-eggs/ 
-.eggs/ 
-lib/ 
-lib64/ 
-parts/ 
-sdist/ 
-var/ 
-wheels/ 
-*.whl
-*.egg-info/ 
-.installed.cfg 
-*.egg 
-*.manifest 
-*.spec 
-
-# Installer logs 
-pip-log.txt 
-pip-delete-this-directory.txt 
-
-# Unit test / coverage reports 
-htmlcov/ 
-.tox/ 
-.coverage 
-.coverage.* 
-.cache 
-.pytest_cache/ 
-nosetests.xml 
-coverage.xml 
-*.cover 
-.hypothesis/ 
-
-# Jupyter Notebook 
-.ipynb_checkpoints 
-
-# pyenv 
-.python-version 
-
-# celery 
-celerybeat-schedule.* 
-
-# SageMath parsed files 
-*.sage.py 
-
-# Environments 
-.env 
-.venv 
-env/ 
-venv/ 
-ENV/ 
-env.bak/ 
-venv.bak/ 
-
-# mkdocs documentation 
-/site 
-
-# mypy 
-.mypy_cache/ 
-
-# Sublime Text # 
-*.tmlanguage.cache 
-*.tmPreferences.cache 
-*.stTheme.cache 
-*.sublime-workspace 
-*.sublime-project 
-
-# sftp configuration file 
-sftp-config.json 
-
-# Package control specific files Package 
-Control.last-run 
-Control.ca-list 
-Control.ca-bundle 
-Control.system-ca-bundle 
-GitHub.sublime-settings 
-
-# Visual Studio Code # 
-.vscode/* 
-!.vscode/settings.json 
-!.vscode/tasks.json 
-!.vscode/launch.json 
-!.vscode/extensions.json 
-.history
-poetry.lock
-pyproject.toml
-requirements.txt
-documentation.md
-Makefile

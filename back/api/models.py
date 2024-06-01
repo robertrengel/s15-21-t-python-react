@@ -19,6 +19,8 @@ class ApiUser(models.Model):
 
     STATUS_CHOICES = (("P", "PENDIENTE"), ("A", "ACTIVO"), ("I", "INACTIVO"))
 
+    
+
     uniqueid = models.CharField(max_length=50, unique=True)
     country_code = models.CharField(choices=COUNTRY_CHOICES, max_length=3)
     role = models.CharField(choices=ROLE_CHOICES, default="PAC", max_length=3)
