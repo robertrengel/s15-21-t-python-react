@@ -3,9 +3,11 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from catalogs.models import Speciality
 from .serializers import SpecialitySerializer
+from rest_framework.permissions import IsAuthenticated
 
 
 class SpecialityViewSet(viewsets.ReadOnlyModelViewSet):
+    permission_classes = [IsAuthenticated]
     """_summary_
     A simple ViewSet for listing or retrieving specialities
     """

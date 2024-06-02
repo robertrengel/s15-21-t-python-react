@@ -3,12 +3,13 @@ from rest_framework import viewsets, status
 # from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
 from medical_history.models import MedicalHistory
-
+from rest_framework.permissions import IsAuthenticated
 from medical_history.api.v1.serializers import MedicalHistorySerializer
 
 
 class MedicalHistoryViewSet(viewsets.ModelViewSet):
 
+    permission_classes = [IsAuthenticated]
     queryset = MedicalHistory.objects.all()
     serializer_class = MedicalHistorySerializer
 
