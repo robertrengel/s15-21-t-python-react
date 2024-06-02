@@ -1,4 +1,13 @@
 from rest_framework import serializers
+from djoser.serializers import UserCreateSerializer as BaseUserCreateSerializer
+from djoser.serializers import UserCreateSerializer as BaseUserCreateSerializer
+
+
+class UserCreateSerializer(BaseUserCreateSerializer):
+
+    class Meta(BaseUserCreateSerializer.Meta):
+        fields = ["id", "username", "password", "email", "first_name", "last_name"]
+
 
 class UserSerializer(serializers.Serializer):
     uniqueid = serializers.CharField(max_length=50)
@@ -12,7 +21,8 @@ class UserSerializer(serializers.Serializer):
     civil_status = serializers.CharField(max_length=255)
     birth_date = serializers.DateField()
     created_by = serializers.CharField(max_length=50)
-    
+
+
 class ProfileSerializer(serializers.Serializer):
     email = serializers.EmailField(max_length=100)
     notifications = serializers.BooleanField()
