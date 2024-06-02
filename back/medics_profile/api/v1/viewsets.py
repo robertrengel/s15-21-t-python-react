@@ -2,10 +2,11 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from medics_profile.models import MedicProfile
 from medics_profile.api.v1.serializers import MedicProfileSerializer
+from rest_framework.permissions import IsAuthenticated
 
 
 class MedicProfileViewSet(viewsets.ModelViewSet):
-
+    permission_classes = [IsAuthenticated]
     queryset = MedicProfile.objects.all()
     serializer_class = MedicProfileSerializer
 
