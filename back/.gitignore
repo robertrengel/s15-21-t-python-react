@@ -90,3 +90,4 @@ dmypy.json
 
 # Archivos de configuración de Pyre
 .pyre/
+Makefile
