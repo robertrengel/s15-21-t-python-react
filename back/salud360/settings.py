@@ -49,6 +49,7 @@ THIRD_PARTY_APPS = [
     "drf_spectacular_sidecar",
     "coreapi",
     "djoser",
+    "django_countries",
 ]
 
 
@@ -73,6 +74,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+AUTH_USER_MODEL = "api.ApiUser"
 
 ROOT_URLCONF = "salud360.urls"
 
