@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+
+  h1 {
+    font-size: 6em;
+    margin: 0;
+  }
+
+  p {
+    font-size: 2em !important;
+    margin: 0.5em 0;
+    font-family: 'Poppins', sans-serif; /* Aplica la tipografía Poppins */
+    color: #1B5196; /* Aplica el color celeste */
+
+    @media (max-width: 834px) {
+      font-size: 1.2em !important;
+    }
+
+    @media (max-width: 375px) {
+      font-size: 1em !important;
+    }
+  }
+}
+
+.illustrations {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+
+  .illustration {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px; /* Ajusta según sea necesario */
+
+    @media (max-width: 834px) {
+      max-height: 200px;
+    }
+
+    @media (max-width: 375px) {
+      max-height: 150px;
+    }
+  }
+}
