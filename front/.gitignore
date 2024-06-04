@@ -23,5 +23,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-node_modules 
-.vscode 
+node_modules
+.vscode
