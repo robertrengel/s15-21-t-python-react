@@ -1,0 +1,37 @@
+
+
+.form-label{
+    font-family: 'Poppins', sans-serif;
+}
+
+.card{
+    background-color: #1B5196;
+}
+
+.card-body{
+    background-color: #1B5196;
+}
+
+
+input{
+    background-color: white; 
+}
+
+.btn {
+    background-color: #7BB6B2;
+}
+
+.fw-bold{
+    display: flex;
+    flex-direction:initial; 
+}
+
+.form-label{
+    display: flex;
+    flex-direction:initial; 
+}
+
+.small{
+    padding: 5%;
+}
+
