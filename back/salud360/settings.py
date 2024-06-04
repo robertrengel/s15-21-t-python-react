@@ -58,6 +58,7 @@ LOCAL_APPS = [
     "medics_profile",
     "medical_history",
     "catalogs",
+    "users_profile",
 ]
 
 
