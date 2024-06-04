@@ -22,6 +22,6 @@ delmig:
 	rm -rf ./medics_profile/migrations/00*.py
 	rm -rf ./api/migrations/00*.py
 	rm -rf ./catalogs/migrations/00*.py
-
+	rm -rf ./users_profile/migrations/00*.py
 su:
 	python manage.py createsuperuser
