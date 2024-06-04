@@ -1,9 +1,12 @@
+
 import { Button } from "../Button/Button";
 import { Icons } from "../Icons/Icons";
-import { Login } from '../Login/Login'
+import Login from '../Login/Login';
 import styles from "./Sidebar.module.scss";
 
 export const SideBar = (props) => {
+     
+
     return (
         <aside className={styles.sideBar}>
             <div className={styles.brand}>
@@ -14,11 +17,11 @@ export const SideBar = (props) => {
                 <Button width={341} height={48} onClick={(e) => console.log(e)}>
                     Registrarse
                 </Button>
-                <Button width={341} height={48}>
+                <Button width={341} height={48}  >
                     Iniciar Sesion
-                </Button> 
-                <Login/>
+                </Button>
             </div>
+            
         </aside>
     );
 };

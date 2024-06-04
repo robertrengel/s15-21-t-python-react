@@ -1,6 +1,4 @@
-
-import React from 'react';
-import './Login.css';
+import './Login.css'
 
 function Login() {
   return (
@@ -53,8 +51,3 @@ function Login() {
 }
 
 export default Login;
-
-
-
-
-
