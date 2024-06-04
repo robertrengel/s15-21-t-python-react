@@ -1,6 +1,5 @@
 from django.db import models
 from api.models import ApiUser
-from django.contrib.auth.models import User
 from medics_profile.constants import MEDICS_PROFILE_STATUS
 from abstracts.models import AbstractModel
 

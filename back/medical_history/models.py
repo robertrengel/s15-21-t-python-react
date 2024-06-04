@@ -1,13 +1,13 @@
 from django.db import models
 from abstracts.models import AbstractModel
-from django.contrib.auth.models import User
+from api.models import ApiUser
 from catalogs.models import Speciality
 
 
 # Create your models here.
 class MedicalHistory(AbstractModel):
     user = models.ForeignKey(
-        User,
+        ApiUser,
         on_delete=models.CASCADE,
         related_name="medical_histories",
     )

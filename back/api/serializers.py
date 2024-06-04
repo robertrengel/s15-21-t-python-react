@@ -1,28 +1,28 @@
 from rest_framework import serializers
-from djoser.serializers import UserCreateSerializer as BaseUserCreateSerializer
-from djoser.serializers import UserCreateSerializer as BaseUserCreateSerializer
+from api.models import ApiUser
 
 
-class UserCreateSerializer(BaseUserCreateSerializer):
+class UserCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ApiUser
+        fields = fields = [
+            "id",
+            "username",
+            "password",
+            "email",
+            "first_name",
+            "last_name",
+            "user_country",
+        ]
+        extra_kwargs = {"password": {"write_only": True}}
 
-    class Meta(BaseUserCreateSerializer.Meta):
-        fields = ["id", "username", "password", "email", "first_name", "last_name"]
-
-
-class UserSerializer(serializers.Serializer):
-    uniqueid = serializers.CharField(max_length=50)
-    country_code = serializers.CharField(max_length=3)
-    role = serializers.CharField(max_length=3)
-    first_name = serializers.CharField(max_length=255)
-    last_name = serializers.CharField(max_length=255)
-    id_type = serializers.CharField(max_length=255)
-    id_value = serializers.CharField(max_length=255)
-    genre = serializers.CharField(max_length=255)
-    civil_status = serializers.CharField(max_length=255)
-    birth_date = serializers.DateField()
-    created_by = serializers.CharField(max_length=50)
-
-
-class ProfileSerializer(serializers.Serializer):
-    email = serializers.EmailField(max_length=100)
-    notifications = serializers.BooleanField()
+    def create(self, validated_data):
+        user = ApiUser.objects.create_user(
+            username=validated_data["username"],
+            email=validated_data["email"],
+            password=validated_data["password"],
+            first_name=validated_data["first_name"],
+            last_name=validated_data["last_name"],
+            user_country=validated_data["user_country"],
+        )
+        return user

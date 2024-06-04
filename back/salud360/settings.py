@@ -39,7 +39,6 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    
 ]
 
 THIRD_PARTY_APPS = [
@@ -50,6 +49,7 @@ THIRD_PARTY_APPS = [
     "drf_spectacular_sidecar",
     "coreapi",
     "djoser",
+    "django_countries",
 ]
 
 
@@ -75,6 +75,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+AUTH_USER_MODEL = "api.ApiUser"
+
 ROOT_URLCONF = "salud360.urls"
 
 TEMPLATES = [
@@ -97,7 +99,7 @@ WSGI_APPLICATION = "salud360.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgresql://postgres:postgres@localhost:5432/dbdoc",
+        default="postgresql://renesilva:renesilva@localhost:5432/dbdoc",
         conn_max_age=600,
     )
 }
@@ -161,4 +163,8 @@ SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("JWT",),
 }
 
-DJOSER = {"SERIALIZERS": {"user_create": "api.serializers.UserCreateSerializer"}}
+DJOSER = {
+    "SERIALIZERS": {"user_create": "api.serializers.UserCreateSerializer"},
+    "USER_ID_FIELD": "username",
+    "LOGIN_FIELD": "username",
+}
