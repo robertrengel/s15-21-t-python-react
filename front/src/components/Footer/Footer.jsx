@@ -1,6 +1,8 @@
 import { Icons } from "../Icons/Icons";
 import styles from "./Footer.module.scss";
 
+import { Error404 } from '../Error404/Error404'
+
 export const Footer = (props) => {
     return (
         <footer className={styles.footer}>
