@@ -15,6 +15,7 @@ import environ
 
 import os
 import dj_database_url
+from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -59,6 +60,7 @@ LOCAL_APPS = [
     "medical_history",
     "catalogs",
     "users_profile",
+    "comments",
 ]
 
 
@@ -100,7 +102,7 @@ WSGI_APPLICATION = "salud360.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgresql://renesilva:renesilva@localhost:5432/dbdoc",
+        default="postgresql://postgres:postgrees@localhost:5432/dbdoc",
         conn_max_age=600,
     )
 }
@@ -162,6 +164,9 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("JWT",),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes= 1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+
 }
 
 DJOSER = {

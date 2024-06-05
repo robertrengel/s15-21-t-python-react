@@ -32,6 +32,7 @@ urlpatterns = [
     path("medical-history/", include("medical_history.api.v1.urls")),
     path("medic-profile/", include("medics_profile.api.v1.urls")),
     path("catalogs/", include("catalogs.urls")),
+    path("comments/", include("comments.urls")),
     path("schema/", schema_view.as_view()),
     path(
         "docs/", include_docs_urls(title="Doc360 API services")
