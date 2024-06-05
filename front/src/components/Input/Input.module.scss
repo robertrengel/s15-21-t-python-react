@@ -1,0 +1,25 @@
+.input, .textarea {
+    width: 341px;
+    background-color: #fafafa;
+    border: 1px solid #000; 
+    border-radius: 8px;
+    margin-top: 8px; 
+    display: block; 
+}
+
+.input {
+    height: 48px;
+}
+
+.textarea {
+    height: 142px;
+    resize: none; 
+}
+
+.label {
+    display: block;
+    color: #fafafa; 
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
