@@ -1,0 +1,45 @@
+.carousel{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 524px;
+    height: 832px;
+
+    .title{
+        color:#222121;
+        font-weight: 400;
+        size: 24px;
+        line-height: 36px;
+    }
+    .carousel_track_container{
+    max-width: 524px;
+    height: 350px;
+    background-color: #416EA7;
+    }
+    .carousel_track{
+        width: 100%;
+        height: auto;
+        background-color: #416EA7;
+
+    }
+
+    .container_btn{
+        display: flex;
+        justify-content: center;
+        gap:8px
+    }
+    .btn{
+        background-color: #416EA7;
+        width: 12px;
+        height: 12px;
+        border-radius: 100px;
+        border-color:transparent transparent;
+        &:hover{
+            background-color: #1B5196;
+            width: 24px;
+            height: 12px;
+            border-radius: 100px;
+        }
+    }
+
+}
