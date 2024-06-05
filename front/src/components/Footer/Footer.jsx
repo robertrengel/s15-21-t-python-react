@@ -4,7 +4,7 @@ import { FormContact } from '../../pages/FormContact/FormContact.jsx';
 import { Button } from '../Button/Button.jsx';
 import styles from './Footer.module.scss';
 
-import { Error404 } from '../Error404/Error404'
+//import { Error404 } from '../Error404/Error404'
 
 export const Footer = (props) => {
     const [formVisible, setFormVisible] = useState(false);

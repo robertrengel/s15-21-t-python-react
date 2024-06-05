@@ -1,4 +1,4 @@
-import styles from './Error404.scss';
+{/* import styles from './Error404.scss';
 import illustration1 from '/src/assets/illustration1.png';
 import illustration2 from '/src/assets/illustration2.png';
 
@@ -19,3 +19,4 @@ const Error404 = () => {
   
   export default Error404;
   
+ */}
