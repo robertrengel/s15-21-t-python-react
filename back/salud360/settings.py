@@ -98,13 +98,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "salud360.wsgi.application"
 
+'''
 DATABASES = {
     "default": dj_database_url.config(
         default="postgresql://renesilva:renesilva@localhost:5432/dbdoc",
         conn_max_age=600,
     )
 }
+'''
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
+    }
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
