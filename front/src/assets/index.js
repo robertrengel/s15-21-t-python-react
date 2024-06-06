@@ -35,6 +35,7 @@ import Comentar from "./Icono-comentar.svg";
 import Buscar from "./Icono-buscar.svg";
 import Error404 from "./Search-amico.png"
 import Error500 from "./server-status.png"
+import Eliminar from "./Icono-eliminar.svg"
 
 export {
   Logo,
@@ -72,7 +73,8 @@ export {
   Configuracion,
   Comentar,
   Buscar,
-Error404,
-Error500
+  Error404,
+  Error500,
+  Eliminar
 
 };
