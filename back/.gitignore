@@ -8,6 +8,7 @@ venv/
 ENV/
 .venv/
 .env/
+pyvenv.cfg
 
 # Compilación de Python
 *.py[cod]
