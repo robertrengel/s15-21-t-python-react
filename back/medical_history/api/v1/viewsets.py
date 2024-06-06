@@ -3,28 +3,26 @@ from rest_framework import viewsets, status
 # from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
 from medical_history.models import MedicalHistory
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 from medical_history.api.v1.serializers import MedicalHistorySerializer
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from utils.permissions import IsAuthenticatedToViewList
 
 
-class MedicalHistoryViewSet(viewsets.ModelViewSet):
-
+class MedicalHistoryViewSet(viewsets.ReadOnlyModelViewSet):
+    # authentication_classes = (TokenAuthentication,)
     permission_classes = [IsAuthenticated]
-    queryset = MedicalHistory.objects.all()
     serializer_class = MedicalHistorySerializer
 
-    def get_queryset(self):
-
-        queryset = MedicalHistory.objects.all()
-
-        return queryset
-
-    def list(self, request, *args, **kwargs):
+    def list(self, request, *wargs, **kwargs):
         """
         Return a list of all the existing items.
         Only active clinical expedient
         """
-        return super().list(request, *args, **kwargs)
+        queryset = MedicalHistory.objects.all().order_by("title")
+        serializer = MedicalHistorySerializer(queryset, many=True)
+
+        return Response(serializer.data)
 
     def create(self, request, *args, **kwargs):
         """
