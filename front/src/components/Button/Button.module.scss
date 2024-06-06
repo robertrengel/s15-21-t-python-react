@@ -3,7 +3,8 @@
     padding: 12px 14px;
     gap: 2px;
     background-color: #7bb6b2;
-    color: black;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    color: #222121;
     border: none;
     padding: 4px 60px;
     border-radius: 8px;
@@ -20,7 +21,8 @@
 
     &.text {
         background-color: transparent;
-        color: white;
+        color: 
+        #FAFAFA;
 
         &:hover {
             background-color: transparent;
