@@ -11,7 +11,12 @@ class SpecialitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Speciality
-        fields = "__all__"
+        fields = [
+            "id",
+            "speciality_name",
+            "speciality_img_url",
+            "speciality_description",
+        ]
 
 
 class CountrySerializer(serializers.Serializer):

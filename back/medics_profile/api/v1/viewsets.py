@@ -3,10 +3,11 @@ from rest_framework.response import Response
 from medics_profile.models import MedicProfile
 from medics_profile.api.v1.serializers import MedicProfileSerializer
 from rest_framework.permissions import IsAuthenticated
+from utils.permissions import ListAndRetrievePermission
 
 
 class MedicProfileViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [ListAndRetrievePermission]
     queryset = MedicProfile.objects.all()
     serializer_class = MedicProfileSerializer
 
