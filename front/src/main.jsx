@@ -4,6 +4,8 @@ import "./index.css";
 import { UserProvider } from "./context/UserContext/UserContext.jsx";
 import { RouterProvider } from "react-router-dom";
 import { Routes } from "./routes/index.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css' 
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>

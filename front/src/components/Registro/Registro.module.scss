@@ -1,0 +1,46 @@
+.formContainer {
+  background-color: #1B5196;
+  padding: 2rem;
+  margin-top: 2rem;
+  border-radius: 8px;
+  color: #fafafa;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .titleContainer {
+    margin-bottom: 2rem; 
+  }
+
+  h2 {
+    margin: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background-color: #fafafa;
+    margin: 0;
+  }
+
+  small {
+    color: #fafafa; 
+  }
+}
+
+.formRow {
+  margin-bottom: 2rem; 
+}
+
+.buttonRow {
+  margin-top: 4rem; 
+  margin-bottom: 0; 
+}
+
+.cancelButton {
+  width: 200px;
+  height: 50px;
+  border: 2px solid #fafafa;
+  color: #fafafa;
+}
