@@ -33,7 +33,8 @@ import {
     Documento,
     Configuracion,
     Comentar,
-    Buscar
+    Buscar,
+    Eliminar
 
     } from "../../assets";
 
@@ -57,7 +58,7 @@ const Icon = ({ icon, ...props }) => {
         case "traumatologia":
             SelectedIcon = Traumatologia;
             break;
-         case "toxicologia":
+        case "toxicologia":
             SelectedIcon = Toxicologia;
             break;
         case "telefono":
@@ -143,7 +144,10 @@ const Icon = ({ icon, ...props }) => {
             break;
         case "buscar":
             SelectedIcon =Buscar;
-            break;        
+            break; 
+        case "eliminar":
+                SelectedIcon =Eliminar;
+                break;       
         default:
             SelectedIcon = Logo;
             break;
