@@ -18,15 +18,16 @@
 
         .form_title{
             width: 535px;
-            font-size: 24px;
-            line-height: 36px;
-            font-weight: 400;
-            color: #fafafa;
-            hr{
-                border: 2px  solid #fafafa;
-                
+            height: 68px;
+            border-bottom: 2px solid #fafafa;
+            padding: 16px;
+            h3{
+                font-size: 24px;
+                line-height: 36px;
+                font-weight: 400;
+                color: #fafafa;
             }
-        
+
         }
         .container_fields{
             width: 535px;
@@ -41,10 +42,30 @@
             
             }
             .btn_carga{
-                width: 100%;
                 display: flex;
                 justify-content: center;
                 gap:24px;
+                .fileUpload{
+                
+
+                }
+
+
+                .modal_open {
+                    overflow: hidden;
+
+                    &::before{
+                        content: "";
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(146, 146, 146, 0.3);
+                        z-index: 1;
+                    }
+                }
+
                 button{
                     padding: 0;
                 }
@@ -73,29 +94,31 @@
         border-radius: 8px;
         display: flex;
         flex-direction: column;
+        gap: 32px;
 
         
         .article_title{
-           
-            font-size: 24px;
-            line-height: 36px;
-            font-weight: 400;
-            color: #fafafa;
-            hr{
-                border: 2px solid #fafafa;
-                
+            width: 270px;
+            height: 68px;
+            border-bottom: 2px solid #fafafa;
+            padding: 16px;
+            h3{
+                font-size: 24px;
+                line-height: 36px;
+                font-weight: 400;
+                color: #fafafa;
             }
-
         }
         .article_cometario{
             width: 313px;
-            border-radius: 8px;
             padding: 16px;
             gap: 8px;
+            border-bottom: .5px solid #FAFAFA ;
             
             &:hover{
-                
+                border-radius: 8px;
                 background-color: #1B5196;
+                border-bottom: transparent ;
             }
             p, time{
                 font-size: 20px;
@@ -103,15 +126,10 @@
                 font-weight: 500;
                 color:#FAFAFA;
             }
-    
-        
+
 
         }
-        hr{
-            width: 100%;    
-            border: 0.5px solid #FAFAFA; ;
-        }
-      
+
     
 
     }
