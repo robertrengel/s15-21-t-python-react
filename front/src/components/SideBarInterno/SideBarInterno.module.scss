@@ -1,0 +1,27 @@
+.sideBar {
+    background-color: #1b5196;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    max-width: 540px;
+    align-items: center;
+    padding: 88px 0;
+
+    .brand {
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 54px;
+        max-width: 325px;
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+        align-items: center;
+    }
+
+    .actionButtons {
+        padding-top: 136px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+}

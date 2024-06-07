@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+}
+
+.historia_clinica {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; 
+}
+
+.search_container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.input_with_icon {
+    position: relative;
+    width: 100%;
+}
+
+.search_icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.label_container {
+    left: 378px;
+    top:  152px;
+    width: 80%;
+    height: 48px;
+}
+
+.especialidad {
+    left: 386px;
+    top: 244px;
+    width: 250px;
+    height: 48px;
+}
+
+.title_especialidad {
+    color: #222121;
+    font-family: 'poppins';
+}
+
+.container_coment {
+    left: 378px;
+    top: 338px;
+    width: 798px;
+    height: 648px;
+    border: 5px solid #000;
+}
+
+.comen {
+    width: 798px;
+    height: 200px;
+    border: 5px solid blue;
+}

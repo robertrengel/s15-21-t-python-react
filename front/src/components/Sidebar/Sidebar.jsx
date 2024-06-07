@@ -1,7 +1,6 @@
-
 import { Button } from "../Button/Button";
 import { Icons } from "../Icons/Icons";
-import Login from '../Login/Login';
+//import Login from '../Login/Login';
 import styles from "./Sidebar.module.scss";
 
 export const SideBar = (props) => {
@@ -19,7 +18,8 @@ export const SideBar = (props) => {
                 </Button>
                 <Button width={341} height={48}  >
                     Iniciar Sesion
-                </Button>
+                </Button> 
+                
             </div>
             
         </aside>
