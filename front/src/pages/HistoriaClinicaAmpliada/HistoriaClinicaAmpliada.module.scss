@@ -1,12 +1,15 @@
 .section{
-    border:10px solid rgb(212, 35, 35);
+    display:flex ;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+
 
     .form{
         display:flex;
         flex-direction: column;
         align-items: center;
-        border:8px solid rgb(70, 150, 103);
-        max-width:707px;
+        width:707px;
         border-radius: 8px;
         padding: 36px 0px 36px 0px;
         gap: 36px;
@@ -63,11 +66,56 @@
 
     
     .article{
-        border:10px solid rgb(85, 70, 150)
+    
+        background-color: #416EA7;
+        width: 341px;
+        padding: 32px 16px 32px 16px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+
+        
+        .article_title{
+           
+            font-size: 24px;
+            line-height: 36px;
+            font-weight: 400;
+            color: #fafafa;
+            hr{
+                border: 2px solid #fafafa;
+                
+            }
+
+        }
+        .article_cometario{
+            width: 313px;
+            border-radius: 8px;
+            padding: 16px;
+            gap: 8px;
+            
+            &:hover{
+                
+                background-color: #1B5196;
+            }
+            p, time{
+                font-size: 20px;
+                line-height: 30px;
+                font-weight: 500;
+                color:#FAFAFA;
+            }
+    
+        
+
+        }
+        hr{
+            width: 100%;    
+            border: 0.5px solid #FAFAFA; ;
+        }
+      
     
 
     }
-
+  
 
 
 }
