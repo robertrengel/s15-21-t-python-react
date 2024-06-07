@@ -1,6 +1,21 @@
 from rest_framework import serializers
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from api.models import ApiUser
 from django_countries.serializer_fields import CountryField
+
+
+class ApiTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        token["username"] = user.username
+        token["user_id"] = user.id
+        return token
+
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        data.update({"user_id": self.user.id, "username": self.user.username})
+        return data
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
