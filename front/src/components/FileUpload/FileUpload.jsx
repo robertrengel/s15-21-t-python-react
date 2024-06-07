@@ -19,7 +19,7 @@ export const  FileUpload = ({icon, ...props }) => {
 
 
     return(
-        <div className={styles.file_upload_container}>
+        <>
         <label 
         className={styles.custom_file_upload}  
             style={{
@@ -43,6 +43,6 @@ export const  FileUpload = ({icon, ...props }) => {
             </div>
           ))}
         </div>
-      </div>
+      </>
     )
  }
