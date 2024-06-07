@@ -28,7 +28,9 @@ return (
                     <Input type="textarea" label="Comentarios" placeholder="input" />
                 <div className={styles.btn_carga}>
                     <FileUpload icon={<Icons icon="documento" size={36} color="green"  />} size={60} />
-                    <FileUpload icon={<Icons icon="comentar" size={33}   />} size={60}/>
+                    <Button onClick={()=>{console.alert("boton")}} width={60} height={60} >
+                        <Icons icon="comentar" size={33}   />
+                    </Button>
                 </div>
                 <div className={styles.btn_submit}>
                 <Button   width={159} height={48} onClick={()=>{console.log("boton")}}>Volver</Button>
