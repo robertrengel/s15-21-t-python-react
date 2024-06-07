@@ -3,9 +3,9 @@ from api.models import ApiUser
 from django_countries.serializer_fields import CountryField
 
 
-
 class UserCreateSerializer(serializers.ModelSerializer):
     user_country = CountryField()
+
     class Meta:
         model = ApiUser
         fields = fields = [

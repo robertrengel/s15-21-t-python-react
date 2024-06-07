@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import environ
-
+from datetime import timedelta
 import os
 import dj_database_url
 from datetime import timedelta
@@ -51,6 +51,7 @@ THIRD_PARTY_APPS = [
     "coreapi",
     "djoser",
     "django_countries",
+    "simple_history",
 ]
 
 
@@ -73,10 +74,12 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "simple_history.middleware.HistoryRequestMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
 ]
+
 
 AUTH_USER_MODEL = "api.ApiUser"
 
@@ -102,7 +105,7 @@ WSGI_APPLICATION = "salud360.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgresql://postgres:postgrees@localhost:5432/dbdoc",
+        default="postgresql://postgres:postgres@localhost:5432/dbdoc",
         conn_max_age=600,
     )
 }
@@ -157,16 +160,34 @@ REST_FRAMEWORK = {
     "COERCE_DECIMAL_TO_STRING": False,
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
     ),
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
-
+    # "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAdminUser",),
 }
 
-SIMPLE_JWT = {
-    "AUTH_HEADER_TYPES": ("JWT",),
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes= 1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "AUTH_HEADER_TYPES": ("JWT",),
+    "ROTATE_REFRESH_TOKENS": False,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "ALGORITHM": "HS256",
+    "SIGNING_KEY": SECRET_KEY,
+    "VERIFYING_KEY": None,
+    "AUDIENCE": None,
+    "ISSUER": None,
+    "AUTH_HEADER_TYPES": ("Bearer",),
+    "USER_ID_FIELD": "id",
+    "USER_ID_CLAIM": "user_id",
+    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
+    "TOKEN_TYPE_CLAIM": "token_type",
+    "JTI_CLAIM": "jti",
+    "SLIDING_TOKEN_REFRESH_EXP_CLAIM": "refresh_exp",
+    "SLIDING_TOKEN_LIFETIME": timedelta(minutes=30),
+    "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
 }
 
 DJOSER = {

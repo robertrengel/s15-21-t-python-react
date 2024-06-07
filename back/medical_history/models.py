@@ -2,6 +2,7 @@ from django.db import models
 from abstracts.models import AbstractModel
 from api.models import ApiUser
 from catalogs.models import Speciality
+from simple_history.models import HistoricalRecords
 
 
 # Create your models here.
@@ -13,7 +14,6 @@ class MedicalHistory(AbstractModel):
     )
     added_by = models.PositiveIntegerField()
     add_datetime = models.DateTimeField()
-    speciality = models.CharField(max_length=45)
     title = models.CharField(max_length=45)
     description = models.CharField(max_length=45)
     public = models.BooleanField(default=False)
@@ -21,6 +21,7 @@ class MedicalHistory(AbstractModel):
     speciality = models.ForeignKey(
         Speciality, on_delete=models.CASCADE, related_name="speciality"
     )
+    history = HistoricalRecords()
 
     class Meta:
         db_table = "medical_histories"

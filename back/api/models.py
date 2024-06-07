@@ -6,4 +6,4 @@ from django_countries.fields import CountryField
 class ApiUser(AbstractUser):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    user_country = CountryField(blank = True, null = True)
+    user_country = CountryField(blank=True, null=True)

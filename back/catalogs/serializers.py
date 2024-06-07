@@ -3,7 +3,6 @@ from catalogs.models import Speciality
 from django_countries.fields import Country
 
 
-
 class SpecialitySerializer(serializers.ModelSerializer):
     """_Summary_
     Serializer for the specialities catalog.
@@ -12,15 +11,27 @@ class SpecialitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Speciality
-        fields = "__all__"
+        fields = [
+            "id",
+            "speciality_name",
+            "speciality_img_url",
+            "speciality_description",
+        ]
+
 
 class CountrySerializer(serializers.Serializer):
+    """_summary_
+    Delivers country information as catalog
+
+    Args:
+        code (str): to be used as the country code
+        name (str): to be used as the country name
+    """
+
     code = serializers.CharField(max_length=2)
     name = serializers.CharField(max_length=255)
-    flat = serializers.SerializerMethodField()
+    flag = serializers.SerializerMethodField()
 
-    def get_flat(self, obj):
+    def get_flag(self, obj):
         country = Country(code=obj["code"])
-        return country.flat
-
-
+        return country.flag
