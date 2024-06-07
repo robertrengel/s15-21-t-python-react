@@ -43,6 +43,30 @@ return (
             </div>
         </form>
     <article className={styles.article}>
+    <div className={styles.article_title}>
+        <h3>Historial</h3>
+        <hr />  
+    </div>
+    <div className={styles.article_cometario}>
+        <time datetime="2023-06-06" >25/05/2024</time>
+        <p>
+            Marcelo Perez ha agregado un nuevo documento
+        </p> 
+    </div>
+    <hr />
+    <div className={styles.article_cometario}>
+        <time datetime="2023-06-06" >25/05/2024</time>
+        <p>
+            Marcelo Perez ha agregado un nuevo documento
+        </p>
+    </div>
+    <hr />
+    <div className={styles.article_cometario}>
+        <time datetime="2023-06-06" >25/05/2024</time>
+        <p>
+            Marcelo Perez ha agregado un nuevo documento
+        </p>
+    </div>
 
     </article>
 </section>
