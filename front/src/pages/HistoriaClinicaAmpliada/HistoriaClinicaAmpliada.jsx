@@ -9,14 +9,7 @@ import {useState} from "react";
 export const HistoriaClinicaAmpliada= ()=>{
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [formData, setFormData] = useState({
-        name: '',
-        apellido: '',
-        edad:'',
-        diagostico: '', 
-        tratamiento: '',
-        comentario: '',
-    });
+    const [formData, setFormData] = useState({});
 
     const openModal = () => {
       setIsModalOpen(true);
@@ -27,16 +20,16 @@ export const HistoriaClinicaAmpliada= ()=>{
     };
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
         setFormData({
-        ...formData,
-        [name]: value
-        });
+            ...formData,
+            [event.target.name]:event.target.value
+        })
+        
       };
 
     const handleSubmit = (event) => {
         event.preventDefault(); 
-        console.log('Form data:', formData);
+        console.log('datos optenidos del formulario:', formData);
   };
 
       
@@ -80,19 +73,18 @@ return (
                         label="Diagnostico" 
                         placeholder="input" 
                         name="Diagnostico"
-                        value={formData.name}
                         onChange={handleChange}
                         />
                         <Input 
                             type="textarea" 
                             label="Tratamiento" 
-                            placeholder="input" 
+                            placeholder="input"
+                            onChange={handleChange}
                         />
                         <Input 
                             type="textarea" 
                             label="Comentarios" 
                             placeholder="input"
-                            value={formData.name}
                             onChange={handleChange} 
                         />
                     <div className={styles.btn_carga}>
@@ -104,7 +96,8 @@ return (
                                     size={36} 
                                     color="green"  
                                 />} 
-                            size={60} 
+                            size={60}
+                            
                         />
                         </div>
                         <div className={`${styles.modal} ${isModalOpen ? styles.modal_open : ''}`}>
