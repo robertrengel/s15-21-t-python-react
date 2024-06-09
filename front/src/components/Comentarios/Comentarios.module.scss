@@ -1,33 +1,57 @@
-.container_coment {
-    left: 378px;
-    top: 338px;
+.general_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 798px;
     height: 648px;
+    left: 378px;
+    top: 336px;
+    margin-bottom: 30px;
     border: 5px solid #000;
-}
-
-.este_textarea {
-    width:  318px;
-    height: 96px;
-    border-radius: 8px;
 }
 
 .title_coment {
     display: flex;
-    align-items: center; 
+    align-items: center;
+    justify-content: space-between; 
+    gap: 10px;
+    left: 24px;
+    top: 24px;
+    width: 550px;
+    height: 42px;
+    text-align: left;
+
 }
 
 .title {
-    margin-right: 10px; 
-    color: #222121;
+    margin: 0; 
+    color: #000;
     font-family: 'poppins';
 }
 
 .img, .mensaje {
-    margin-left: 90px;
+    margin-left: auto;
 }
 
 .coment_field {
-    display: flex;
-    align-items: center;
+    width: 550px;
+    height: 110px;
+    left: 24px;
+    top: 81px;
+    border: 5px solid blue;
+}
+
+.este_textarea {
+    width: 318px;
+    height: 96px;
+    border-radius: 8px;
+    left: 0;
+    top: 0;
+}
+
+.container_diagnosis {
+    width: 196px;
+    height: 60px;
+    left: 354px;
+    top: 18px;
 }
