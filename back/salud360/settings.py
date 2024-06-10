@@ -176,12 +176,13 @@ SIMPLE_JWT = {
     ),
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(minutes=20),
+    "USER_ID_FIELD": "email",
 }
 
 DJOSER = {
     "SERIALIZERS": {
         "user_create": "api.serializers.UserCreateSerializer",
     },
-    "USER_ID_FIELD": "username",
-    "LOGIN_FIELD": "username",
+    "USER_ID_FIELD": "email",
+    "LOGIN_FIELD": "email",
 }
