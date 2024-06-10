@@ -18,4 +18,4 @@ class MedicProfile(AbstractModel):
         db_table = "medics_profile"
 
         def __str__(self):
-            return self.user.username
+            return self.user.email

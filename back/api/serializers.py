@@ -10,7 +10,6 @@ class ApiTokenObtainPairSerializer(TokenObtainPairSerializer):
         token = super().get_token(user)
         token["username"] = user.username
         token["user_id"] = user.id
-        
         return token
 
     def validate(self, attrs):
@@ -24,29 +23,35 @@ class UserCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ApiUser
-        fields = fields = [
+        fields = fields = (
             "id",
-           # "username",
             "first_name",
             "last_name",
+            #"email",
             "id_nationality",
-            "user_country",
-            "password",
-            "email",
             "date_brith",
-        ]
+            "username",
+            "password",
+            "user_country",
+        )
+        labels = {
+            "username": "Email address",
+        }
+        help_text = {
+            "username": "Texto ramdom",
+        }
         exclude_fields = ["email"]
         extra_kwargs = {"password": {"write_only": True}}
 
     def create(self, validated_data):
         user = ApiUser.objects.create_user(
-           # username=validated_data["username"],
-            email=validated_data["email"],
-            password=validated_data["password"],
             first_name=validated_data["first_name"],
             last_name=validated_data["last_name"],
-            user_country=validated_data["user_country"],
-            date_brith=validated_data["date_brith"],
+           # email=validated_data["email"],
             id_nationality=validated_data["id_nationality"],
+            date_brith=validated_data["date_brith"],
+            username=validated_data["username"],
+            password=validated_data["password"],
+            user_country=validated_data["user_country"],
         )
         return user
