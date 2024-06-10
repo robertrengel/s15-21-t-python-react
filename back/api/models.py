@@ -12,7 +12,7 @@ class ApiUser(AbstractUser):
     date_brith = models.DateField(null=True, blank=True)
     id_nationality = models.IntegerField(default=0)
 
+
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
-
 

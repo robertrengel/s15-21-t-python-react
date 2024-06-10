@@ -48,5 +48,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
             username=validated_data["username"],
             password=validated_data["password"],
             user_country=validated_data["user_country"],
+            date_brith=validated_data["date_brith"],
+            id_nationality=validated_data["id_nationality"],
         )
         return user
