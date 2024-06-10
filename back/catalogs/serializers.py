@@ -29,9 +29,9 @@ class CountrySerializer(serializers.Serializer):
     """
 
     code = serializers.CharField(max_length=2)
-    name = serializers.CharField(max_length=255)
-    flag = serializers.SerializerMethodField()
+    name = serializers.CharField(max_length=100)
+    # flag = serializers.SerializerMethodField()
 
-    def get_flag(self, obj):
-        country = Country(code=obj["code"])
-        return country.flag
+    # def get_flag(self, obj):
+    #     country = Country(code=obj["code"])
+    #     return country.flag
