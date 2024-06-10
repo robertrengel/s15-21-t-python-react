@@ -36,8 +36,6 @@ urlpatterns = [
     path("catalogs/", include("catalogs.urls")),
     path("comments/", include("comments.urls")),
     path("schema/", schema_view.as_view()),
-    path(
-        "docs/", include_docs_urls(title="Doc360 API services")
-    ),  # Documentation endpoint
+    path("docs/", include_docs_urls(title="Doc360 API services",)),  # Documentation endpoint
     path("", RedirectView.as_view(url="/docs/", permanent=True)),  # Re
 ]
