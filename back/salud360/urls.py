@@ -38,6 +38,7 @@ urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
     path("medical-history/", include("medical_history.api.v1.urls")),
     path("medic-profile/", include("medics_profile.api.v1.urls")),
+    path("user-profile/", include("users_profile.api.v1.urls")),
     path("catalogs/", include("catalogs.urls")),
     path("schema/", schema_view.as_view()),
     path(
