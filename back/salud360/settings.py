@@ -15,6 +15,7 @@ import environ
 from datetime import timedelta
 import os
 import dj_database_url
+from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -44,6 +45,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "drf_yasg",
     "rest_framework",
+    "rest_framework.authtoken",
     "debug_toolbar",
     "drf_spectacular",
     "drf_spectacular_sidecar",
@@ -60,6 +62,7 @@ LOCAL_APPS = [
     "medical_history",
     "catalogs",
     "users_profile",
+    "comments",
 ]
 
 
@@ -103,7 +106,7 @@ WSGI_APPLICATION = "salud360.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgresql://renesilva:renesilva@localhost:5432/dbdoc",
+        default="postgresql://postgres:postgres@localhost:5432/dbdoc",
         conn_max_age=600,
     )
 }
@@ -155,41 +158,30 @@ INTERNAL_IPS = [
 ]
 
 REST_FRAMEWORK = {
-    "COERCE_DECIMAL_TO_STRING": False,
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.TokenAuthentication",
-        "rest_framework.authentication.SessionAuthentication",
     ),
+    "DEFAULT_PERMISSION_CLASSES": [
+        "api.permissions.AllowDocsPermission",
+    ],
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
-    # "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAdminUser",),
 }
 
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "AUTH_HEADER_TYPES": ("JWT",),
-    "ROTATE_REFRESH_TOKENS": False,
-    "BLACKLIST_AFTER_ROTATION": True,
-    "ALGORITHM": "HS256",
-    "SIGNING_KEY": SECRET_KEY,
-    "VERIFYING_KEY": None,
-    "AUDIENCE": None,
-    "ISSUER": None,
-    "AUTH_HEADER_TYPES": ("Bearer",),
-    "USER_ID_FIELD": "id",
-    "USER_ID_CLAIM": "user_id",
-    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
-    "TOKEN_TYPE_CLAIM": "token_type",
-    "JTI_CLAIM": "jti",
-    "SLIDING_TOKEN_REFRESH_EXP_CLAIM": "refresh_exp",
-    "SLIDING_TOKEN_LIFETIME": timedelta(minutes=30),
-    "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
+    "AUTH_HEADER_TYPES": (
+        "JWT",
+        "Bearer",
+    ),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
+    "REFRESH_TOKEN_LIFETIME": timedelta(minutes=20),
 }
 
 DJOSER = {
-    "SERIALIZERS": {"user_create": "api.serializers.UserCreateSerializer"},
+    "SERIALIZERS": {
+        "user_create": "api.serializers.UserCreateSerializer",
+    },
     "USER_ID_FIELD": "username",
     "LOGIN_FIELD": "username",
 }

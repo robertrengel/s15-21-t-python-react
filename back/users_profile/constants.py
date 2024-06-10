@@ -1,8 +1,3 @@
-CATALOG_OF_CONTRY = (
-    ("ARG", "ARGENTINA"),
-    ("COL", "COLOMBIA"),
-    ("I", "INACTIVO"),
-)
 PATIENT_GENRE = (
     ("H", "HOMBRE"),
     ("M", "MUJER"),
