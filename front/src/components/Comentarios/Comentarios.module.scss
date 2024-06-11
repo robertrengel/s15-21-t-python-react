@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     width: 798px;
-    height: 648px;
+    height: 200px;
     left: 378px;
     top: 336px;
     margin-bottom: 30px;
@@ -29,8 +29,11 @@
     font-family: 'poppins';
 }
 
+
+
 .img, .mensaje {
     margin-left: auto;
+    
 }
 
 .coment_field {
@@ -39,20 +42,26 @@
     left: 24px;
     top: 81px;
     border: 5px solid blue;
-}
-
-.este_textarea {
+  }
+  
+  .inner_container {
+    display: flex;
+    align-items: center; 
+  }
+  
+  .este_textarea {
     width: 318px;
     height: 96px;
     border-radius: 8px;
-    left: 0;
-    top: 0;
-}
-
-.container_diagnosis {
-    width: 196px;
-    height: 60px;
-    left: 354px;
-    top: 18px;
-    border: 3px solid red;
-}
+    margin-right: 10px; 
+  }
+  
+  .button_file {
+    margin-right: 10px; 
+  }
+  
+  .diagnostico {
+    width: 50px; 
+    height: auto; 
+  }
+  

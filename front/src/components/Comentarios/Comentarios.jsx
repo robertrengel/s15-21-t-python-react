@@ -13,7 +13,11 @@ export const Comentarios = ({
         <div className={styles.title_coment}>
           <h2 className={styles.title}>{userName}</h2>
           <span> {fecha} </span>
-          <p> {mensaje} </p>
+          {/* <p> {mensaje} </p> */}
+          <img
+            src="../../../public/imagenes/mensaje.png" 
+            alt="" 
+          />
         </div>
 
         <div className={styles.coment_field}>
@@ -32,14 +36,6 @@ export const Comentarios = ({
           </div>
         </div>
 
-        {/* <div className={styles.container_diagnosis}>
-        <img
-          className={styles.diagnostico}
-          src="../../../public/imagenes/boton-diagnostico.png"
-          alt=""
-        />
-      </div> */}
-
         <div className={styles.button_keep}>
           <Button width={159} height={48}>
             <img
@@ -54,3 +50,12 @@ export const Comentarios = ({
     </div>
   );
 };
+
+
+
+
+
+{/* <label for="upload">
+      <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+      <input type="file" id="upload" style="display:none">
+</label> */}
