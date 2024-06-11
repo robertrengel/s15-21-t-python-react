@@ -53,6 +53,7 @@ THIRD_PARTY_APPS = [
     "djoser",
     "django_countries",
     "simple_history",
+    "corsheaders",
 ]
 
 
@@ -79,6 +80,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "simple_history.middleware.HistoryRequestMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 
@@ -185,3 +188,6 @@ DJOSER = {
     "USER_ID_FIELD": "username",
     "LOGIN_FIELD": "username",
 }
+
+CORS_ALLOW_ALL_ORIGINS = True
+
