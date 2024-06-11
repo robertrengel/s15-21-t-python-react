@@ -2,6 +2,8 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from api.models import ApiUser
 from django_countries.serializer_fields import CountryField
+from rest_framework import status
+from rest_framework.response import Response
 
 
 class ApiTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -48,4 +50,10 @@ class UserCreateSerializer(serializers.ModelSerializer):
             user_country=validated_data["user_country"],
             
         )
+
         return user
+    
+    def to_representation(self, instance):
+        return {
+            "detail": "User created successfully",
+        }
