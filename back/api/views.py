@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
-from .models import ApiUser
+from .models import Doc360User
 from api.serializers import UserCreateSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
@@ -18,7 +18,7 @@ class UserListView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        queryset = ApiUser.objects.all()
+        queryset = Doc360User.objects.all()
         serializer = UserCreateSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -26,7 +26,7 @@ class UserListView(APIView):
 @api_view()
 @permission_classes([IsAuthenticated])
 def user_list(request):
-    queryset = ApiUser.objects.all()
+    queryset = Doc360User.objects.all()
     serializer = UserCreateSerializer(queryset, many=True)
     return Response(serializer.data)
 
@@ -38,6 +38,6 @@ def user_list(request):
     ]
 )
 def user_detail(request, id):
-    profile = get_object_or_404(ApiUser, pk=id)
+    profile = get_object_or_404(Doc360User, pk=id)
     serializer = UserCreateSerializer(profile)
     return Response(serializer.data)

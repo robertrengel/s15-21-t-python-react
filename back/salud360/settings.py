@@ -80,7 +80,7 @@ MIDDLEWARE = [
 ]
 
 
-AUTH_USER_MODEL = "api.ApiUser"
+AUTH_USER_MODEL = "api.Doc360User"
 
 ROOT_URLCONF = "salud360.urls"
 
@@ -180,6 +180,6 @@ DJOSER = {
     "SERIALIZERS": {
         "user_create": "api.serializers.UserCreateSerializer",
     },
-    "USER_ID_FIELD": "username",
-    "LOGIN_FIELD": "username",
+    "USER_ID_FIELD": "email",
+    "LOGIN_FIELD": "email",
 }
