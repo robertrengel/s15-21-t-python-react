@@ -53,6 +53,7 @@ THIRD_PARTY_APPS = [
     "djoser",
     "django_countries",
     "simple_history",
+    "corsheaders",
 ]
 
 
@@ -79,6 +80,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "simple_history.middleware.HistoryRequestMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 
@@ -176,13 +179,15 @@ SIMPLE_JWT = {
     ),
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(minutes=20),
-    "USER_ID_FIELD": "email",
 }
 
 DJOSER = {
     "SERIALIZERS": {
         "user_create": "api.serializers.UserCreateSerializer",
     },
-    "USER_ID_FIELD": "email",
-    "LOGIN_FIELD": "email",
+    "USER_ID_FIELD": "username",
+    "LOGIN_FIELD": "username",
 }
+
+CORS_ALLOW_ALL_ORIGINS = True
+
