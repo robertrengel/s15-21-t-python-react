@@ -4,8 +4,8 @@ from django_countries.fields import CountryField
 
 
 class ApiUser(AbstractUser):
-    username = models.EmailField(max_length=100, blank=True, null=True)
-    email = models.EmailField(unique=True)
+    username = models.EmailField(unique=True)
+    #email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     user_country = CountryField(blank=True, null=True)
@@ -13,6 +13,6 @@ class ApiUser(AbstractUser):
     id_nationality = models.IntegerField(default=0)
 
 
-    USERNAME_FIELD = "email"
+    USERNAME_FIELD = "username"
     REQUIRED_FIELDS = []
 

@@ -8,13 +8,13 @@ class ApiTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
-        token["email"] = user.email
+        token["username"] = user.username
         token["user_id"] = user.id
         return token
 
     def validate(self, attrs):
         data = super().validate(attrs)
-        data.update({"user_id": self.user.id, "email": self.user.email})
+        data.update({"user_id": self.user.id, "username": self.user.username})
         return data
 
 
@@ -27,7 +27,6 @@ class UserCreateSerializer(serializers.ModelSerializer):
             "id",
             "first_name",
             "last_name",
-            #"email",
             "id_nationality",
             "date_brith",
             "username",
@@ -42,13 +41,11 @@ class UserCreateSerializer(serializers.ModelSerializer):
         user = ApiUser.objects.create_user(
             first_name=validated_data["first_name"],
             last_name=validated_data["last_name"],
-            #email=validated_data["email"],
             id_nationality=validated_data["id_nationality"],
             date_brith=validated_data["date_brith"],
             username=validated_data["username"],
             password=validated_data["password"],
             user_country=validated_data["user_country"],
-            date_brith=validated_data["date_brith"],
-            id_nationality=validated_data["id_nationality"],
+            
         )
         return user
