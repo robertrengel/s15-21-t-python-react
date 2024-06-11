@@ -1,22 +1,39 @@
-import { Facebook, Instagram, Logo, Twitter } from "../../assets";
+import {
+    BackArrow,
+    DownArrow,
+    Error404,
+    Error500,
+    Facebook,
+    HomeImage,
+    Image404,
+    Image500,
+    Instagram,
+    Logo,
+    Menu,
+    Password,
+    PasswordVisible,
+    Twitter,
+} from "../../assets";
 import styles from "./Icons.module.scss";
 
+const ImagesDict = {
+    facebook: Facebook,
+    instagram: Instagram,
+    twitter: Twitter,
+    error404: Error404,
+    image404: Image404,
+    error500: Error500,
+    image500: Image500,
+    home: HomeImage,
+    backArrow: BackArrow,
+    downArrow: DownArrow,
+    menu: Menu,
+    password: Password,
+    passwordVisible: PasswordVisible,
+};
+
 const Icon = ({ icon, ...props }) => {
-    let SelectedIcon;
-    switch (icon) {
-        case "facebook":
-            SelectedIcon = Facebook;
-            break;
-        case "instagram":
-            SelectedIcon = Instagram;
-            break;
-        case "twitter":
-            SelectedIcon = Twitter;
-            break;
-        default:
-            SelectedIcon = Logo;
-            break;
-    }
+    const SelectedIcon = ImagesDict[icon] ?? Logo;
 
     return <SelectedIcon {...props} />;
 };
@@ -26,7 +43,7 @@ export const Icons = (props) => {
         <Icon
             className={`${styles.icon} ${
                 props.color ? styles[props.color] : ""
-            }`}
+            } ${props.className}`}
             icon={props.icon}
             style={{
                 width: `${props.size}px`,
