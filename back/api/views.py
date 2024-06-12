@@ -1,13 +1,17 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
-from .models import ApiUser
+from .models import Doc360User
 from api.serializers import UserCreateSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.views import APIView
-
+from rest_framework.schemas import ManualSchema
+import coreapi
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .serializers import ApiTokenObtainPairSerializer
+from djoser.views import UserViewSet
+from rest_framework import status
+from rest_framework.decorators import action
 
 
 class Doc360TokenObtainPairView(TokenObtainPairView):
@@ -18,7 +22,7 @@ class UserListView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        queryset = ApiUser.objects.all()
+        queryset = Doc360User.objects.all()
         serializer = UserCreateSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -26,7 +30,7 @@ class UserListView(APIView):
 @api_view()
 @permission_classes([IsAuthenticated])
 def user_list(request):
-    queryset = ApiUser.objects.all()
+    queryset = Doc360User.objects.all()
     serializer = UserCreateSerializer(queryset, many=True)
     return Response(serializer.data)
 
@@ -38,6 +42,16 @@ def user_list(request):
     ]
 )
 def user_detail(request, id):
-    profile = get_object_or_404(ApiUser, pk=id)
+    profile = get_object_or_404(Doc360User, pk=id)
     serializer = UserCreateSerializer(profile)
     return Response(serializer.data)
+
+
+class CustomUserViewSet(UserViewSet):
+
+    @action(method=["post"], detail=False)
+    def create(self, request, *args, **kwargs):
+        serializer = UserCreateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({"message": "EUREKA"}, status=status.HTTP_201_CREATED)

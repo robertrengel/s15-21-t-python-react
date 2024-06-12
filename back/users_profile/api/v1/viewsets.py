@@ -7,7 +7,7 @@ from users_profile.api.v1.serializers import (
 
 from rest_framework.permissions import IsAuthenticated
 from users_profile.models import UserProfile
-from api.models import ApiUser
+from api.models import Doc360User
 from rest_framework.exceptions import PermissionDenied
 
 

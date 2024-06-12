@@ -5,12 +5,12 @@ from .constants import (
     PATIENT_CIVIL_STATUS,
     PATIENT_STATUS,
 )
-from api.models import ApiUser
+from api.models import Doc360User
 
 
 # Create your models here.
 class UserProfile(AbstractModel):
-    user = models.OneToOneField(ApiUser, on_delete=models.CASCADE)
+    user = models.OneToOneField(Doc360User, on_delete=models.CASCADE)
     unique_id = models.CharField(max_length=45)
     id_type = models.CharField(max_length=45)
     id_value = models.CharField(max_length=45)
