@@ -8,6 +8,7 @@ from django.urls import reverse
 from .managers import Doc360UserManager
 
 
+
 class Doc360User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=254, unique=True)
    # name = models.CharField(max_length=254)
@@ -21,6 +22,7 @@ class Doc360User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField(auto_now_add=True)
     id_nationality = models.IntegerField(default=0)
     date_brith = models.DateField(null=True,blank=True)
+
 
     USERNAME_FIELD = "email"
     EMAIL_FIELD = "email"

@@ -1,25 +1,49 @@
-.input, .textarea {
-    width: 341px;
-    background-color: #fafafa;
-    border: 1px solid #000; 
-    border-radius: 8px;
-    margin-top: 8px; 
-    display: block; 
-}
-
 .input {
-    height: 48px;
-}
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
 
-.textarea {
-    height: 142px;
-    resize: none; 
-}
+    label {
+        font-size: 14px;
+        line-height: 18px;
+        color: #fafafa;
+        margin: 0;
+    }
 
-.label {
-    display: block;
-    color: #fafafa; 
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    margin-bottom: 4px;
+    .helperText {
+        margin: 0;
+        color: #fafafa;
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .field {
+        display: flex;
+        background-color: #fafafa;
+        border-radius: 8px;
+        position: relative;
+        padding: 14px 8px;
+
+        .content {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            width: -webkit-fill-available;
+        }
+
+        .icon {
+            position: absolute;
+            top: 30%;
+            right: 9px;
+        }
+
+        &.error {
+            border: 1px solid red;
+        }
+    }
+
+    &.textarea {
+        height: 170px;
+    }
 }
