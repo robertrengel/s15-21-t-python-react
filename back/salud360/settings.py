@@ -177,6 +177,8 @@ SIMPLE_JWT = {
 }
 
 DJOSER = {
+    "SEND_ACTIVATION_EMAIL": False,
+    "SEND_CONFIRMATION_EMAIL": False,
     "SERIALIZERS": {
         "user_create": "api.serializers.UserCreateSerializer",
     },

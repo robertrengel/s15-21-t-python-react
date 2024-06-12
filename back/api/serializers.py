@@ -2,6 +2,9 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from api.models import Doc360User
 from django_countries.serializer_fields import CountryField
+from djoser.serializers import UserCreateSerializer
+from rest_framework import status
+from rest_framework.response import Response
 
 
 class ApiTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -33,7 +36,21 @@ class UserCreateSerializer(serializers.ModelSerializer):
             "user_country",
         ]
 
-        extra_kwargs = {"password": {"write_only": True}}
+        extra_kwargs = {
+            "password": {"write_only": True},
+            "email": {"help_text": "Valid gmail address"},
+            "password": {
+                "help_text": "min lenght 8 caracters:<br> \
+                        1.- Uppercase letter.<br> \
+                        2.- Lowercase letter.<br> \
+                        3.- Digit number.<br> \
+                        4.- Special character: #/%&"
+            },
+            "name": {"help_text": "Full name"},
+            "first_name": {"help_text": "Only alfabetic characters"},
+            "last_name": {"help_text": "Only alfabetic characters"},
+            "user_country": {"help_text": "Country Name"},
+        }
 
     def create(self, validated_data):
         user = Doc360User.objects.create_user(
@@ -45,3 +62,10 @@ class UserCreateSerializer(serializers.ModelSerializer):
             user_country=validated_data["user_country"],
         )
         return user
+
+
+class CustomUserCreateSerializer(UserCreateSerializer):
+    def create(self, validated_data):
+        user = super().create(validated_data)
+        response_data = {"detail": "User created successfully"}
+        return Response(response_data, status=status.HTTP_201_CREATED)
