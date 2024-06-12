@@ -68,7 +68,9 @@ class UserCreateSerializer(serializers.ModelSerializer):
             user_country=validated_data["user_country"],
             
         )
+
         return user
+
 
 
 class CustomUserCreateSerializer(UserCreateSerializer):
