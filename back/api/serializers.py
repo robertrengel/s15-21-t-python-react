@@ -11,13 +11,13 @@ class ApiTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
-        token["username"] = user.username
+        token["email"] = user.email
         token["user_id"] = user.id
         return token
 
     def validate(self, attrs):
         data = super().validate(attrs)
-        data.update({"user_id": self.user.id, "username": self.user.username})
+        data.update({"user_id": self.user.id, "email": self.user.email})
         return data
 
 
