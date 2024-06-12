@@ -1,12 +1,12 @@
 from django.db import models
 from medical_history.models import MedicalHistory
-from api.models import ApiUser
+from api.models import Doc360User
 
 # Create your models here.
 
 class Comment(models.Model):
     history_id = models.ForeignKey(MedicalHistory, on_delete=models.CASCADE, )
-    user = models.ForeignKey(ApiUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(Doc360User, on_delete=models.CASCADE)
     comment = models.CharField(max_length=255)
     date = models.DateTimeField(auto_now_add=True)
 

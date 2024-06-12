@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from users_profile.models import UserProfile
 from django_countries.serializers import CountryFieldMixin
-from api.models import ApiUser
+from api.models import Doc360User
 from .validators import validate_unique_id
 
 

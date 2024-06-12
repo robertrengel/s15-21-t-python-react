@@ -1,6 +1,6 @@
 from django.db import models
 from abstracts.models import AbstractModel
-from api.models import ApiUser
+from api.models import Doc360User
 from catalogs.models import Speciality
 from simple_history.models import HistoricalRecords
 
@@ -8,7 +8,7 @@ from simple_history.models import HistoricalRecords
 # Create your models here.
 class MedicalHistory(AbstractModel):
     user = models.ForeignKey(
-        ApiUser,
+        Doc360User,
         on_delete=models.CASCADE,
         related_name="medical_histories",
     )
