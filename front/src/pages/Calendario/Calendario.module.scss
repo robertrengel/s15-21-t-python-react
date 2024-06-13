@@ -1,0 +1,47 @@
+.calendarContainer {
+    background-color: #1B5196;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 0;
+  }
+  
+  .calendarTitle {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .calendarWrapper {
+    display: flex;
+    justify-content: center;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 0;
+  }
+  
+  .calendar {
+    width: 100%;
+    max-width: 450px;
+    background: white;
+    border: none;
+    margin-top: 0;
+    .react-calendar__tile {
+      max-width: 45px;
+      height: 45px;
+      text-align: center;
+      line-height: 45px;
+    }
+    .react-calendar__tile--active {
+      background: #007bff;
+      color: white;
+    }
+  }
+  
+  .hour-box {
+    border: 2px solid #1B5196;
+    width: 60px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+  }
