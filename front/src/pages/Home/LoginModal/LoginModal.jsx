@@ -39,7 +39,7 @@ export function LoginModal({ isOpen, onClose }) {
             setIsLoading(true);
             const data = await login({
                 password: values["password"].value,
-                username: values["email"].value,
+                email: values["email"].value,
             });
             if (data.user_id) {
                 const newUser = {

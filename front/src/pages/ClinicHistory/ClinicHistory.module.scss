@@ -1,0 +1,21 @@
+@import "../../assets/constants.scss";
+
+.clinicHistory {
+    display: grid;
+}
+
+@media screen and (min-width: $media-query-desktop) {
+    .clinicHistory {
+        grid-template-columns: 350px minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) 30px 330px;
+        grid-template-areas: "aside content" "- -" "footer footer";
+
+        aside {
+            grid-area: aside;
+        }
+
+        .footer {
+            grid-area: footer;
+        }
+    }
+}
