@@ -18,7 +18,7 @@ export function ClinicHistory() {
             onClick: () => {},
         },
         perfil: {
-            icon: "user",
+            icon: "perfil",
             label: "Mi Perfil",
             onClick: () => {},
         },
@@ -28,7 +28,7 @@ export function ClinicHistory() {
             onClick: () => {},
         },
         comentarios: {
-            icon: "comments",
+            icon: "comment",
             label: "Comentarios",
             onClick: () => {},
         },
