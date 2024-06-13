@@ -8,9 +8,28 @@
     padding: 20px 60px;
     height: 69px;
 
-    svg {
-        path {
-            fill: #fafafa;
+    .icon {
+        svg {
+            path {
+                fill: #fafafa;
+            }
+        }
+
+        button {
+            padding: 5px;
+        }
+    }
+
+    .menuItem {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background-color: rgb(226, 226, 226);
+        position: absolute;
+
+        button {
+            justify-content: flex-start;
+            color: #1b5196;
         }
     }
 }

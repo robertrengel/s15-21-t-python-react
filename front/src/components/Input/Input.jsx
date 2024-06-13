@@ -70,6 +70,7 @@ export const Input = ({
                         value={value}
                         onChange={onChange}
                     >
+                        <option value="">Seleccione un país</option>
                         {options.map((option) => (
                             <option key={option.label} value={option.value}>
                                 {option.label}

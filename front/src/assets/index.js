@@ -14,10 +14,14 @@ import Password from "./password.svg";
 import PasswordVisible from "./password_1.svg";
 import Search from "./search.svg";
 import Edit from "./edit.svg";
-import  Setting from "./setting.svg";
+import Setting from "./setting.svg";
 import Document from "./document.svg";
 import Close from "./close.svg";
 import Comment from "./comment.svg";
+import Home from "./home_1.svg";
+import Calendar from "./calendar.svg";
+import Comentar from "./comentar.svg";
+import Perfil from "./perfil.svg";
 
 export {
     Logo,
@@ -39,5 +43,9 @@ export {
     Setting,
     Document,
     Close,
-    Comment
-}
+    Comment,
+    Home,
+    Calendar,
+    Comentar,
+    Perfil,
+};

@@ -1,9 +1,12 @@
 import {
     BackArrow,
+    Calendar,
+    Comentar,
     DownArrow,
     Error404,
     Error500,
     Facebook,
+    Home,
     HomeImage,
     Image404,
     Image500,
@@ -12,6 +15,7 @@ import {
     Menu,
     Password,
     PasswordVisible,
+    Perfil,
     Twitter,
     Search,
     Edit,
@@ -31,7 +35,7 @@ const ImagesDict = {
     image404: Image404,
     error500: Error500,
     image500: Image500,
-    home: HomeImage,
+    homeImage: HomeImage,
     backArrow: BackArrow,
     downArrow: DownArrow,
     menu: Menu,
@@ -43,6 +47,10 @@ const ImagesDict = {
     document: Document,
     comment: Comment,
     close: Close,
+    home: Home,
+    perfil: Perfil,
+    calendar: Calendar,
+    comentar: Comentar,
 };
 
 const Icon = ({ icon, ...props }) => {

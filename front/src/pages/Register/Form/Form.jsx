@@ -50,8 +50,8 @@ export function Form({ title, fields }) {
                 id_nationality: values["dni"].value,
                 date_birth: values["nacimiento"].value,
             });
-            history("/");
             setIsLoading(false);
+            history("/");
         } catch (e) {
             console.error("Register:error", e);
             setIsLoading(false);

@@ -24,7 +24,7 @@ export const Home = (props) => {
                         Doc360 brinda a los usuarios la posibilidad de tener un
                         seguimiento de su historia clinica.
                     </p>
-                    <Icons className={styles.icon} icon="home" />
+                    <Icons className={styles.icon} icon="homeImage" />
                     <p className={styles.description}>
                         Disponible para todos los dispositivos.
                     </p>
