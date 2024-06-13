@@ -1,8 +1,9 @@
-export async function fetchApi(url, method, body) {
+export async function fetchApi(url, method, body, credentials) {
     const options = {
         method,
         headers: {
             "Content-Type": "application/json",
+            Authorization: credentials ? "Bearer " + credentials : "",
         },
         body: body ? JSON.stringify(body) : undefined,
     };

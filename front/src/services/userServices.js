@@ -15,3 +15,11 @@ export async function login(body) {
 
     return response;
 }
+
+export async function getProfile(user_id, credentials) {
+    const url = `api/apiuser/${user_id}`;
+
+    const response = await fetchApi(url, "GET", undefined, credentials);
+
+    return response;
+}
