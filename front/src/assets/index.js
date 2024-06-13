@@ -12,6 +12,10 @@ import DownArrow from "./arrow_down.svg";
 import Menu from "./menu.svg";
 import Password from "./password.svg";
 import PasswordVisible from "./password_1.svg";
+import Search from "./search.svg";
+import Edit from "./edit.svg";
+import  Setting from "./setting.svg";
+
 
 export {
     Logo,
@@ -28,4 +32,7 @@ export {
     Menu,
     Password,
     PasswordVisible,
+    Search,
+    Edit,
+    Setting,
 };
