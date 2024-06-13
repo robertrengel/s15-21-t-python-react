@@ -1,0 +1,54 @@
+@import "../../assets/constants.scss";
+
+.appSideBar {
+    display: none;
+}
+
+@media screen and (min-width: $media-query-desktop) {
+    .appSideBar {
+        background-color: #1b5196;
+        padding: 8% 4%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2% 4%;
+
+        .brand {
+            padding: 56px 0;
+            max-width: 325px;
+            gap: 34px;
+
+            svg {
+                width: 160px;
+            }
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            box-sizing: border-box;
+
+            button {
+                justify-content: flex-start;
+                gap: 14px;
+
+                svg {
+                    path {
+                        fill: white;
+                    }
+                }
+            }
+        }
+
+        .actionButtons {
+            box-sizing: border-box;
+            padding: 36px 16px;
+            display: flex;
+
+            button {
+                width: 100% !important;
+            }
+        }
+    }
+}

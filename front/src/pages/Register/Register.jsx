@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TopBar } from "../../components/TopBar/TopBar";
 import styles from "./Register.module.scss";
 import { Form } from "./Form/Form";
+import { getCountriesList } from "../../services/apiLists";
+import { Loader } from "../../components/Loader/Loader";
 
 const FormFields = {
     nombre: {
@@ -59,11 +61,45 @@ const FormFields = {
 };
 
 export function Register(props) {
+    const [countriesList, setCountriesList] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        async function getCountries() {
+            try {
+                setIsLoading(true);
+                const response = await getCountriesList();
+                const mappedValues = response.map((resp) => {
+                    return { value: resp.code, label: resp.name.trim() };
+                });
+                setCountriesList(mappedValues);
+                setIsLoading(false);
+            } catch (e) {
+                console.error(e);
+                setIsLoading(false);
+            }
+        }
+
+        getCountries();
+    }, []);
+
     return (
         <>
             <TopBar hasBack />
             <div className={styles.register}>
-                <Form title="Formulario de registro" fields={FormFields} />
+                {!isLoading && (
+                    <Form
+                        title="Formulario de registro"
+                        fields={{
+                            ...FormFields,
+                            pais: {
+                                ...FormFields["pais"],
+                                options: countriesList,
+                            },
+                        }}
+                    />
+                )}
+                {isLoading && <Loader isLoading={isLoading} />}
             </div>
         </>
     );

@@ -39,15 +39,17 @@ export function LoginModal({ isOpen, onClose }) {
             setIsLoading(true);
             const data = await login({
                 password: values["password"].value,
-                username: values["email"].value,
+                email: values["email"].value,
             });
             if (data.user_id) {
-                setUser({
+                const newUser = {
                     refresh_token: data.refresh,
                     access_token: data.access,
                     user_id: data.user_id,
                     username: data.username,
-                });
+                };
+                setUser(newUser);
+                localStorage.setItem("user", JSON.stringify(newUser));
                 history("/clinicHistory");
             }
 

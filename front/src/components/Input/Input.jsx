@@ -2,13 +2,6 @@ import { useState } from "react";
 import { Icons } from "../Icons/Icons";
 import styles from "./Input.module.scss";
 
-function getFormIcon(type) {
-    switch (type) {
-        default:
-            return "downArrow";
-    }
-}
-
 export const Input = ({
     label,
     type,
@@ -70,6 +63,7 @@ export const Input = ({
                         value={value}
                         onChange={onChange}
                     >
+                        <option value="">Seleccione un país</option>
                         {options.map((option) => (
                             <option key={option.label} value={option.value}>
                                 {option.label}

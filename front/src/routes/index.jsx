@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home, ErrorPage, Register, ClinicHistory } from "../pages";
+import { Home, ErrorPage, Register, ClinicHistory,ClinicHistoryWider } from "../pages";
 import { MainGuard } from "./mainGuard";
 
 export const Routes = createBrowserRouter([
@@ -31,4 +31,6 @@ export const Routes = createBrowserRouter([
             </MainGuard>
         ),
     },
+    { path: "/clinicHistoryWider", element: <ClinicHistoryWider /> }
+    
 ]);
