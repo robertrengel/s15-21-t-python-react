@@ -12,6 +12,9 @@ import DownArrow from "./arrow_down.svg";
 import Menu from "./menu.svg";
 import Password from "./password.svg";
 import PasswordVisible from "./password_1.svg";
+import Document from "./document.svg";
+import Close from "./close.svg";
+import Comment from "./comment.svg";
 
 export {
     Logo,
@@ -28,4 +31,7 @@ export {
     Menu,
     Password,
     PasswordVisible,
-};
+    Document,
+    Close,
+    Comment
+    }
