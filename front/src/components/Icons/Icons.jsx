@@ -16,7 +16,11 @@ import {
     Search,
     Edit,
     Setting
+    Document,
+    Comment,
+    Close
 } from "../../assets";
+
 import styles from "./Icons.module.scss";
 
 const ImagesDict = {
@@ -36,6 +40,9 @@ const ImagesDict = {
     search: Search,
     edit: Edit,
     setting: Setting,
+    document: Document,
+    comment: Comment,
+    close: Close,
 };
 
 const Icon = ({ icon, ...props }) => {

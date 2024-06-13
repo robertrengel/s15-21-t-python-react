@@ -15,7 +15,9 @@ import PasswordVisible from "./password_1.svg";
 import Search from "./search.svg";
 import Edit from "./edit.svg";
 import  Setting from "./setting.svg";
-
+import Document from "./document.svg";
+import Close from "./close.svg";
+import Comment from "./comment.svg";
 
 export {
     Logo,
@@ -35,4 +37,7 @@ export {
     Search,
     Edit,
     Setting,
-};
+    Document,
+    Close,
+    Comment
+}

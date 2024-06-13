@@ -4,6 +4,8 @@
     gap: 8px;
     width: 100%;
 
+    
+
     label {
         font-size: 14px;
         line-height: 18px;
@@ -24,6 +26,7 @@
         border-radius: 8px;
         position: relative;
         padding: 14px 8px;
+    
 
         .content {
             background-color: transparent;
@@ -41,9 +44,12 @@
         &.error {
             border: 1px solid red;
         }
+        &.textarea {
+            height: 170px;
+            padding: 8px 8px 0px 16px;
+        
+        }
+        
     }
 
-    &.textarea {
-        height: 170px;
-    }
 }
