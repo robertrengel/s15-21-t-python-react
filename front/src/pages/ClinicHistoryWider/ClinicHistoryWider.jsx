@@ -3,21 +3,15 @@ import { Footer } from "../../components/Footer/Footer";
 import { FormContainer } from "../../components/FormContainer/FormContainer";
 import {Input} from "../../components/Input/Input";
 import {Button} from "../../components/Button/Button";
-import { mapValues, validateField } from "../../helpers/data";
+import { TopBar } from "../../components/TopBar/TopBar";
+import {mapValues } from "../../helpers/data";
 import {Icons} from "../../components/Icons/Icons";
-
-/* import {ModalForm } from "../../components/ModalForm/ModalForm";
-import {FileUpload} from "../../components/FileUpload/FileUpload"; */
+import {CommentItem } from "./CommentItem/CommentItem";
+import {ModalForm} from "./ModalForm/ModalForm";
+import {FileUpload} from "../../components/FileUpload/FileUpload";
 import {useState} from "react";
 
-const ArticleItem = ({ date, description }) =>{
-    return(
-   <div className={styles.article_cometario}>
-        <time>{date}</time>
-        <p>{description}</p>
-    </div>
-);
-} 
+
 export const ClinicHistoryWider= ()=>{
 
   const FormFields = {
@@ -59,14 +53,15 @@ export const ClinicHistoryWider= ()=>{
     },
 };
 
-    const articles = [
+const articles = [
         { date: '25/05/2024', description: 'Marcelo Perez ha agregado un nuevo documento' },
         { date: '25/05/2024', description: 'Marcelo Perez ha agregado un nuevo documento' },
         { date: '25/05/2024', description: 'Marcelo Perez ha agregado un nuevo documento' },
-    ];
+];
 
 const [isModalOpen, setIsModalOpen] = useState(false);
 const [values, setValues] = useState(FormFields);
+const [isLoading, setIsLoading] = useState(false);
 const isSaveDisabled = false;
 
 const openModal = () => {
@@ -76,39 +71,74 @@ const closeModal = () => {
   setIsModalOpen(false);
 };
 
+async function saveDiagnostic() {}
 
-
-      
+  
 return (
     <>
+    <TopBar hasBack />
     <div className={styles.section}>
         <FormContainer
             title="Diagnostico"
+            isLoading={isLoading}
             isSaveDisabled={isSaveDisabled}
             saveLabel="Guardar"
             onReturn={() => onClose()}
         >
             <>
-            <div className={styles.form_container} >
-                {mapValues(values).map((key) => (
-                    <Input
-                        key={values[key].label}
-                        label={values[key].label}
-                        type={values[key].type ?? "text"}
-                        onChange={(e) =>
-                                setValues({
-                                    ...values,
-                                    [key]: {
-                                        ...values[key],
-                                        value: e.target.value,
-                                    },
-                                })
-                            }
+                <div className={styles.form_container} >
+                    {mapValues(values).map((key) => (
+                        <Input
+                            key={values[key].label}
+                            label={values[key].label}
+                            type={values[key].type ?? "text"}
+                            onChange={(e) =>
+                                    setValues({
+                                        ...values,
+                                        [key]: {
+                                            ...values[key],
+                                            value: e.target.value,
+                                        },
+                                    })
+                                }
+                            />
+                
+                        ))}
+                </div>
+                <div className={styles.btn_carga}>
+                        <div className={styles.fileUpload} >
+                        <FileUpload 
+                            icon={
+                                <Icons 
+                                    icon="document" 
+                                    size={36} 
+                                    color="green"  
+                                />} 
+                            size={60}
+                            
                         />
-            
-                    ))}
+                        </div>
+                        <div className={`${styles.modal} ${isModalOpen ? styles.modal_open : ""}`}>
+                            <Button 
+                                onClick={openModal}
+                                width={60} 
+                                height={60}
+                            >
+                                <Icons
+                                    icon="comment"
+                                    size={33}  
+                                />
+                            </Button>
+                            {isModalOpen && (
+                                <ModalForm 
+                                    onClose={closeModal}
+                                >
+                                <Input type="textarea"/>
+                                </ModalForm>
+                            )}
+                        </div>
                     </div>
-                </>
+            </>
         </FormContainer>
 
         <div className={styles.article}>
@@ -116,7 +146,7 @@ return (
                 <h3>Historial</h3>
             </div>
             {articles.map((item, index) => (
-                <ArticleItem 
+                <CommentItem 
                 key={index} 
                 date={item.date} 
                 description={item.description} />
