@@ -15,10 +15,10 @@ import {
     Twitter,
     Search,
     Edit,
-    Setting
+    Setting,
     Document,
     Comment,
-    Close
+    Close,
 } from "../../assets";
 
 import styles from "./Icons.module.scss";
