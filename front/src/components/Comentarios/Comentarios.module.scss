@@ -1,0 +1,136 @@
+/*
+.general_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 798px;
+    height: 200px;
+    left: 378px;
+    top: 336px;
+    margin-bottom: 30px;
+    border: 5px solid #000;
+}
+
+.title_coment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    gap: 10px;
+    left: 24px;
+    top: 24px;
+    width: 550px;
+    height: 42px;
+    text-align: left;
+
+}
+
+.title {
+    margin: 0; 
+    color: #000;
+    font-family: 'poppins';
+}
+
+
+
+.img, .mensaje {
+    margin-left: auto;
+    
+}
+
+.coment_field {
+    width: 550px;
+    height: 110px;
+    left: 24px;
+    top: 81px;
+    border: 5px solid blue;
+  }
+  
+  .inner_container {
+    display: flex;
+    align-items: center; 
+  }
+  
+  .este_textarea {
+    width: 318px;
+    height: 96px;
+    border-radius: 8px;
+    margin-right: 10px; 
+  }
+  
+  .button_file {
+    margin-right: 10px; 
+  }
+  
+  .diagnostico {
+    width: 50px; 
+    height: auto; 
+  }
+  
+*/
+
+
+
+
+
+.general_container {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 798px;
+    height: 200px;
+    left: 378px;
+    top: 336px;
+    margin-bottom: 30px;
+    border: 5px solid #000;
+
+    .title_coment {
+      display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    gap: 10px;
+    left: 24px;
+    top: 24px;
+    width: 550px;
+    height: 42px;
+    text-align: left;
+    
+    .title {
+      margin: 0; 
+      color: #000;
+      font-family: 'poppins';
+
+      .img, .mensaje {
+        margin-left: auto;
+
+          .inner_container {
+            display: flex;
+            align-items: center; 
+
+          .diagnostico {
+              width: 50px; 
+              height: auto; 
+            }
+          }
+      }
+    }
+  }
+}
+
+.coment_field {
+  width: 550px;
+  height: 110px;
+  left: 24px;
+  top: 81px;
+  border: 5px solid blue;
+
+    .este_textarea {
+      width: 318px;
+      height: 96px;
+      border-radius: 8px;
+      margin-right: 10px;
+    }
+}
+
+.button_file  {
+  margin-right: 10px; 
+}

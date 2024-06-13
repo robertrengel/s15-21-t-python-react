@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Home, ErrorPage, Register, ClinicHistory } from "../pages";
-import { MainGuard } from "./mainGuard";
+import { MainGuard } from "./mainGuard"; // Asegúrate de que este import esté descomentado si vas a usar MainGuard
+//import { ClinicHistory } from '../pages/ClinicHistory/ClinicHistory.jsx';
 
 export const Routes = createBrowserRouter([
     {
@@ -23,12 +24,13 @@ export const Routes = createBrowserRouter([
         element: <ErrorPage label="Servidor no encontrado." error={500} />,
     },
     { path: "/register", element: <Register /> },
-    {
-        path: "/clinicHistory",
+    { path: "/ClinicHistory", element: <ClinicHistory /> },
+    {/* {
+        path: "/ClinicHistory",
         element: (
             <MainGuard>
                 <ClinicHistory />
             </MainGuard>
         ),
-    },
+    }, */}
 ]);

@@ -13,6 +13,7 @@ import {
     Password,
     PasswordVisible,
     Twitter,
+    
 } from "../../assets";
 import styles from "./Icons.module.scss";
 
@@ -30,6 +31,7 @@ const ImagesDict = {
     menu: Menu,
     password: Password,
     passwordVisible: PasswordVisible,
+    
 };
 
 const Icon = ({ icon, ...props }) => {
