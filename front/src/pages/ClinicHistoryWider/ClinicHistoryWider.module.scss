@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: flex-start;
     gap: 24px;
-    border:10px solid red;
+
 
     .form_container{
         display: grid;
@@ -21,88 +21,43 @@
             grid-column: span 2;
         }
     }
+
+
     }
-
-
-    .form{
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-        width:707px;
-        border-radius: 8px;
-        padding: 36px 0px 36px 0px;
-        gap: 36px;
-        background-color:#1B5196 ;
-
-
-        .form_title{
-            width: 535px;
-            height: 68px;
-            border-bottom: 2px solid #fafafa;
-            padding: 16px;
-            h3{
-                font-size: 24px;
-                line-height: 36px;
-                font-weight: 400;
-                color: #fafafa;
-            }
-
-        }
-        .container_fields{
-            width: 535px;
-            display:flex;
-            flex-direction: column;
-            gap: 24px;
-
-            .group{
-                width: 100%;
-                display:flex;
-                gap: 24;
-            
-            }
-            .btn_carga{
-                display: flex;
-                justify-content: center;
-                gap:24px;
-                .fileUpload{
-                
-
-                }
-
-
-                .modal_open {
-                    overflow: hidden;
-
-                    &::before{
-                        content: "";
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: rgba(146, 146, 146, 0.3);
-                        z-index: 1;
-                    }
-                }
-
-                button{
-                    padding: 0;
-                }
-
-            }
-            .btn_submit{
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                gap: 24px;
-
-            }
-
-        }
-
-        
     
+    .btn_carga{
+        display: flex;
+        justify-content: center;
+        gap:24px;
+
+        .modal_open {
+            overflow: hidden;
+
+            &::before{
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(146, 146, 146, 0.3);
+                z-index: 1;
+            }
+        }
+
+        button{
+            padding: 0;
+        }
+
     }
+    .btn_submit{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+
+    }
+
 
     
     .article{
@@ -128,26 +83,7 @@
                 color: #fafafa;
             }
         }
-        .article_cometario{
-            width: 313px;
-            padding: 16px;
-            gap: 8px;
-            border-bottom: .5px solid #FAFAFA ;
-            
-            &:hover{
-                border-radius: 8px;
-                background-color: #1B5196;
-                border-bottom: transparent ;
-            }
-            p, time{
-                font-size: 20px;
-                line-height: 30px;
-                font-weight: 500;
-                color:#FAFAFA;
-            }
 
-
-        }
 
     
 
@@ -155,4 +91,22 @@
   
 
 
+}
+
+@media screen and (max-width: $media-query-tablet) {
+    .section {
+      flex-direction: column;
+      .form_container{
+        grid-template-columns: repeat(1, 1fr);
+        > div {
+            &:nth-child(4),
+            &:nth-child(5) ,
+            &:nth-child(6){
+                grid-column: span 1;
+                }
+         }   
+    }
+
+    
+}
 }
