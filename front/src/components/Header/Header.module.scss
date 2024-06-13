@@ -3,7 +3,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-   width: 100%;
+    width: 80%;
+    padding-left: 500px;
     height: 70px;
 
     .user_actions{
@@ -48,6 +49,10 @@
                     border-radius: 50px;
                     left: 53px;
                     top: 0px;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: #91C2BF;
+                    }
                 }
     
             }
@@ -95,3 +100,7 @@
     }
 
 }
+.settings {
+    position: relative;
+  }
+  
