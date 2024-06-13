@@ -10,16 +10,15 @@ export const  FileUpload = ({icon, ...props }) => {
     const handleFileChange = (event) => {
       const newFiles = Array.from(event.target.files);
       setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+      console.log("archivos",newFiles);
     };
   
     const handleRemoveFile = (fileToRemove) => {
       setFiles((prevFiles) => prevFiles.filter(file => file !== fileToRemove));
     };
   
-
-
     return(
-        <>
+        < div>
         <label 
         className={styles.custom_file_upload}  
             style={{
@@ -38,11 +37,11 @@ export const  FileUpload = ({icon, ...props }) => {
             <div key={index} className={styles.file_item}>
               <span>{file.name}</span>
               <button onClick={() => handleRemoveFile(file)}>
-                <Icons icon="eliminar" size={24} color="black" />
+                <Icons icon="close" size={24} color="black" />
               </button>
             </div>
           ))}
         </div>
-      </>
+      </ div>
     )
  }
